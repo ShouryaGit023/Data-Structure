@@ -128,11 +128,12 @@ public:
     //  l1= 1-3-5
     // l2 2-3-6
     //
-    Node* merge(Node *l1, Node *l2)
-    { 
-        //base case;
-        if(l1==NULL || l2==NULL){
-            return l1==NULL ? l2 : l1;
+    Node *merge(Node *l1, Node *l2)
+    {
+        // base case;
+        if (l1 == NULL || l2 == NULL)
+        {
+            return l1 == NULL ? l2 : l1;
         }
 
         if (l1->data <= l2->data)
@@ -156,12 +157,9 @@ int main()
     l1.push_front(5);
     l1.push_front(3);
     l1.push_front(1);
-    
 
     List l2;
     l2.push_front(6);
     l2.push_front(3);
     l2.push_front(2);
-
-
 }
