@@ -90,3 +90,40 @@ int main(){
     dll.print();
 
 }
+
+//flattening of circular linkedlist
+// #430 lc
+// making a recursive function
+// tc= O(n); traversal of linked list once;
+
+// Node* fun(Node* head){
+//     if(head==NULL){
+//         return head;
+//     }
+//     Node* temp=head;
+//     while(temp!=NULL){
+//         if(temp->child!=NULL){
+//             //flattening of child nodes
+//             Node* ahead=temp->next;
+//             temp->next=fun(temp->child);
+//             temp->next->prev=temp;
+//             temp->child=NULL;
+
+//             //connection with the flaten part(finding tail)
+//             while(temp->next!=NULL){
+//                 temp=temp->next;
+//             }
+
+//             //attaching tail with next ptr
+//             if(ahead!=NULL){
+//             temp->next=ahead;
+//             ahead->prev=temp;
+
+//             }  
+//         }
+//         temp=temp->next;
+
+        
+//     }
+//     return head;
+// }
