@@ -50,5 +50,6 @@ int main(){
     vector<int> a={3,1,0,8,6};
     solve(a);
     smaller(a);
+    
 
 }
