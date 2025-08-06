@@ -51,5 +51,6 @@ int main(){
     solve(a);
     smaller(a);
     
+    
 
 }
