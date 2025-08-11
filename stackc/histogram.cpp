@@ -14,7 +14,7 @@ int  solve(vector<int> &v){
         while(s.size()>0 && v[s.top()]>v[i]){
             s.pop();
         }
-        s.empty()? r[i]=-1 :r[i]=s.top();
+        s.empty()? r[i]=n :r[i]=s.top(); //correction was to set the last boundry =n not -1 in case of no right smaller
         s.push(i);
     }
 
