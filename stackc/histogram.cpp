@@ -11,7 +11,7 @@ int  solve(vector<int> &v){
 
     //right smaller
     for(int i=n-1;i>=0;i--){
-        while(s.size()>0 && v[s.top()]>v[i]){
+        while(s.size()>0 && v[s.top()]>=v[i]){ // the sign should be less than or equal to 
             s.pop();
         }
         s.empty()? r[i]=n :r[i]=s.top(); //correction was to set the last boundry =n not -1 in case of no right smaller
@@ -24,7 +24,7 @@ int  solve(vector<int> &v){
 
     //left smaller
     for(int i=0;i<n;i++){
-        while(s.size()>0 && v[s.top()]>v[i]){
+        while(s.size()>0 && v[s.top()]>=v[i]){  //also for finding the smaller element this should be less than or equal to
             s.pop();
         }
         s.empty()? l[i]=-1 :l[i]=s.top();
