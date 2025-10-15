@@ -16,3 +16,7 @@
   1. Every stair is associated with some cost
   2. So find the min cost to reach the end starting from either 0th or 1st Stair
   3. Return the min cost to reach the top floor
+
+
+## MIN No. OF COINS
+  Given a array of coins, find min number of coin req to add up to k
