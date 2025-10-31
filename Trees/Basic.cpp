@@ -58,6 +58,58 @@ void level_order(node* root){
         
     }
 }
+
+//inorder LRN Left-Right-Node
+void inorder(node* root){
+    if(root==NULL){
+        return;
+    }
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+}
+
+void preorder(node* root){ // NLR Node-Left-Right
+    if(root==NULL){
+        return;
+    }
+    cout<<root->data<<" ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+
+void postorder(node* root){ // LRN Left-Right-Node
+    if(root==NULL){
+        return;
+    }
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->data<<" ";
+}
+//----------------------------------------------------------------------------//
+// Q1. height of binary tree
+int height(node* root){
+    if(root == NULL){
+        return 0;
+    }
+    int l=height(root->left);
+    int r=height(root->right);
+    int ans=max(l,r)+1;
+    return ans;
+}
+
+//2. Diameter of Tree
+int dia(node* root){
+    if(root==NULL){
+        return 0;
+    }
+    int l=dia(root->left);
+    int r=dia(root->right);
+    int m=height(root->right)+1+height(root->left);
+    return max(l,max(r,m));
+}
+
 int main(){
 
     node* root=NULL;
