@@ -120,7 +120,7 @@ pair<int,int> fdia(node* root){
     
     int oa=l.first;
     int ob=r.first;
-    int oc=l.second+r.second+1;
+    int oc=l.second+r.second;
     pair<int,int> ans;
     ans.first=max(oa,max(ob,oc));
     ans.second=max(l.second,r.second)+1;
@@ -186,19 +186,52 @@ pair<int,int> fdia(node* root){
     return false;
  }
 
- //Q5. Sum Tree
- bool sumT(node* root){
-    if(root==NULL){
-        return true;
+ //Q5. Max Path Sum
+ int maxi=INT_MIN;
+ int maxSum(node* root,int &maxi){
+    if(!root){
+        return 0;
     }
-    bool l=sumT(root->left);
-    bool r=sumT(root->right);
-    bool m=(root->left->data+root->right->data)==root->data;
-    if(l && r && m){
-        return 1;
+    int l=max(0,maxSum(root->left,maxi));
+    int r=max(0,maxSum(root->right,maxi));
+    maxi=max(maxi,l+r+root->data);
+    return max(l,r)+root->data;
+
+    //for working ask for return maxi in main code
+ }
+
+
+ //zig-zag traversal
+ vector<vector<int>> zigzag(node* root){
+    vector<vector<int>> ans;
+    if(!root){
+        return ans;
     }
-    return false;
-    
+    queue<node*> nq;
+    nq.push(root);
+    bool ltr=true; // flag to toggle our movement
+    while(!nq.empty()){
+        int n=nq.size();
+        vector<int> r(n);
+        for(int i=0;i<n;i++){
+            node* val=nq.front();
+            nq.pop();
+
+            //to find the value where to place;
+            int id=(ltr)?i:(n-i-1);
+            r[id]=root->data;
+            if(root->left){
+                nq.push(root->left);
+            }
+            if(root->right){
+                nq.push(root->right);
+
+            }
+        }
+        ltr=!ltr;
+        ans.push_back(r);
+    }
+    return ans;
  }
 
 

@@ -29,5 +29,15 @@ Optimization: similar to the last one we will use pair to get both values in one
 ### 4. Tree are equal or not
 root check kro, true h then move to left and right,, if wrong then return false;
 
-### 5. Sum tree
-check if the nodes add upto the parent node or not
+### 5. Max Path Sum 
+Return the max sum taken in a part of tree. This can be done by using height and width of tree
+
+### 6. Zig-Zag Traversal
+for tree like
+                
+                  1  
+              2      3
+            4   5   6  7
+Output will be 1,3,2,4,5,6. For this we will have one flag which will tell wheter to move from left to right or vice versa and will maintain queue and vector for storing
+
+            
