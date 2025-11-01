@@ -110,6 +110,62 @@ int dia(node* root){
     return max(l,max(r,m));
 }
 
+pair<int,int> fdia(node* root){
+    //first-> dia, second gives the height
+    if(root==NULL){ //last node ka dia and height is 0,0
+        return {0,0};
+    }
+    pair<int,int> l=fdia(root->left);
+    pair<int,int> r=fdia(root->right);
+    
+    int oa=l.first;
+    int ob=r.first;
+    int oc=l.second+r.second+1;
+    pair<int,int> ans;
+    ans.first=max(oa,max(ob,oc));
+    ans.second=max(l.second,r.second)+1;
+    return ans;
+
+}
+
+//Q3. Balanced tree
+ bool balanced(node* root){
+    if(root==NULL){
+        return true;
+    }
+    bool l=balanced(root->left);
+    bool r=balanced(root->right);
+    bool d=abs(height(root->right)-height(root->left))<=1;
+    if( l && r && d){
+        return true;
+    }
+    return false;
+ }
+
+ //optimised balanced
+ pair<bool,int> fb(node* root){
+    //first-> balanced or not | second-> return the height
+    if(root==NULL){
+        return {1,0}; //balanced-> True | height-> 0
+    }
+    pair<bool,int> l=fb(root->left);
+    pair<bool,int> r=fb(root->right);
+    bool d= abs(l.second-r.second)<=1;
+
+    if(l.first && r.first && d){
+        return {1,max(l.second,r.second)+1};
+    }
+    return {0,max(l.second,r.second)+1};
+
+    //to use this
+    // take fb.first to find whether tree is balanced or not
+ }
+
+ //Q4. Tree are equal or not
+ bool equal(node* root1, node root2){
+    
+ }
+
 int main(){
 
     node* root=NULL;
