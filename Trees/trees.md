@@ -28,3 +28,6 @@ Optimization: similar to the last one we will use pair to get both values in one
 
 ### 4. Tree are equal or not
 root check kro, true h then move to left and right,, if wrong then return false;
+
+### 5. Sum tree
+check if the nodes add upto the parent node or not

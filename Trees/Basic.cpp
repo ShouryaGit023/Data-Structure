@@ -162,10 +162,51 @@ pair<int,int> fdia(node* root){
  }
 
  //Q4. Tree are equal or not
- bool equal(node* root1, node root2){
+ bool equal(node* root1, node* root2){
+    if(root1->data!=root2->data){
+        return false;
+    }
+    
+    if(root1==NULL && root2==NULL){
+        return true;
+    }
+    if(root1!=NULL && root2==NULL){
+        return 0;
+    }
+    if(root1==NULL && root2!=NULL){
+        return 0;
+    }
+
+    bool l=equal(root1->left, root2->left);
+    bool r=equal(root1->right, root2->right);
+    bool v= root1->data == root2->data;
+    if(l && r && v){
+        return true;
+    }
+    return false;
+ }
+
+ //Q5. Sum Tree
+ bool sumT(node* root){
+    if(root==NULL){
+        return true;
+    }
+    bool l=sumT(root->left);
+    bool r=sumT(root->right);
+    bool m=(root->left->data+root->right->data)==root->data;
+    if(l && r && m){
+        return 1;
+    }
+    return false;
     
  }
 
+
+
+
+
+
+ //-------------------------------------------------------------
 int main(){
 
     node* root=NULL;
