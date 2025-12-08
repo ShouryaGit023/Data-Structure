@@ -234,6 +234,45 @@ pair<int,int> fdia(node* root){
     return ans;
  }
 
+ // boundry traversal
+
+ // left traversaL FUN
+ void traverseLeft(node* root, vector<int> &ans){
+    if(root==NULL){
+        return;
+    }
+    if(root->left== NULL && root-> right==NULL){
+        return;
+    }
+    ans.push_back(root->data);
+    if(root->left){
+        traverseLeft(root->left,ans);
+    }
+    if(root->right){
+        traverseLeft(root->right,ans);
+    }
+ };
+
+
+ void traverseLeaf(Node* root, vector<int> &ans){
+    
+    return;
+
+ }
+ vector<int> boundary(node* root){
+    vector<int> ans;
+    if(root==NULL){
+        return ans;
+    }
+    ans.push_back(root->data);
+
+    //left part
+    traverseLeft(root->left, ans);
+ }
+
+
+
+
 
 
 

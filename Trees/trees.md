@@ -40,4 +40,19 @@ for tree like
             4   5   6  7
 Output will be 1,3,2,4,5,6. For this we will have one flag which will tell wheter to move from left to right or vice versa and will maintain queue and vector for storing
 
+
+### 7. Boundry Traversal
+for tree like
+                
+                  1  
+              2      3
+            4   5   6  7
+               8  9 
+traverse only the boundry elements
+the output will be 1 2 4 8 9 6 7 3
+
+ALGO: <br>
+p1: print left part (exvluding leaf node) <br>
+p2: print all the leaf nodes <br>
+p3: print the right part(excluding leaf node + in reverse)
             
