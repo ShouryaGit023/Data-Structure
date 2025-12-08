@@ -254,11 +254,6 @@ pair<int,int> fdia(node* root){
  };
 
 
- void traverseLeaf(Node* root, vector<int> &ans){
-    
-    return;
-
- }
  vector<int> boundary(node* root){
     vector<int> ans;
     if(root==NULL){
