@@ -61,4 +61,16 @@ p3: print the right part(excluding leaf node + in reverse)
 ### 8. Left View of Tree
 Algo: <br>
 Print the first node at each level
+similar for right view
             
+
+### 9. Sum of Longest Bloodline
+<b>algo<br></b>
+Recursively go to each side and check for max sum and max lenght
+
+### 10. Lowest Common Ancestor
+Lowest common meet up point of those two node
+ALGO<br>
+Recursively check for each side if the node is one of the given node or not and return the value
+<br>
+on this basis try to find the lca
