@@ -55,4 +55,10 @@ ALGO: <br>
 p1: print left part (exvluding leaf node) <br>
 p2: print all the leaf nodes <br>
 p3: print the right part(excluding leaf node + in reverse)
+
+
+## there were some other view question refer to docs
+### 8. Left View of Tree
+Algo: <br>
+Print the first node at each level
             

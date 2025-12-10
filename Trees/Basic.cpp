@@ -270,7 +270,19 @@ pair<int,int> fdia(node* root){
 
 
 
+//left view of tree
+void left(node* root,vector<int> &v,int level){
+    //base case;
+    if(!root){
+        return;
+    }
 
+    if(level==v.size()){
+        v.push_back(root->data);
+    }
+    left(root->left,v,level+1);  //for left put the left call above right
+    left(root->right,v,level+1); // if said for right view just put this above the left call
+}
 
 
  //-------------------------------------------------------------
