@@ -74,3 +74,11 @@ ALGO<br>
 Recursively check for each side if the node is one of the given node or not and return the value
 <br>
 on this basis try to find the lca
+
+### 11. K sum paths
+find the number of paths whose sum is K
+
+### 12. Kth ancestor of tree
+
+
+### 13. Minimum time to burn the tree

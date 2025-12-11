@@ -146,6 +146,86 @@ node* lca(node* root,int n1,int n2){
 }
 
 
+
+//-------------------------------------------------------
+//Q3. K sum paths
+void pathSolve(node* root,vector<int> path,int &c, int k){
+    //base case
+    if( !root ){
+        return ;
+    }
+    path.push_back(root->data);
+    // call to left part
+    pathSolve(root->left,path, c,k);
+    //call to right part
+    pathSolve(root->right,path, c,k);
+
+    int n=path.size();
+    int sum=0;
+    for(int i=n-1;i>=0;i--){
+        sum+=path[i];
+        if(sum==k){
+            c++;
+        }
+    }
+    //when backtracking remove the last element from the vector
+    path.pop_back();
+    
+}
+
+int pathSum(node* root,int k){
+    vector<int> path;
+    int c=0;
+    pathSolve(root, path, c,k);
+    return c;
+}
+
+//----------------------------------------------
+
+//Q4. Kth ancestor of the root
+
+node* ks(node* root, int &k, int node){
+    //base case (if k==0 return the node)
+    if(!root){
+        return NULL;
+    }
+    if(root->data==node){
+        return root;
+    }
+
+    node*  lft=ks(root->left,k,node);
+    node* rgt=ks(root->right,k,node);
+    if(lft && !rgt){
+        k--;
+        if(k<=0){
+            k=INT_MAX;
+            return root;
+        }
+        return lft;
+    }
+    if(!lft && rgt){
+        k--;
+        if(k<=0){
+            k=INT_MAX;
+            return root;
+        }
+        return rgt;
+    }
+
+    return NULL;
+
+    //-----------------------------------------------------------
+
+ //Q5. Minimum time to burn the tree
+    
+    
+}
+int kthAncestor(node* root, int &k, int node){
+    return ks(root,k,node)->data;
+
+}
+
+
 int main(){
     
 }
