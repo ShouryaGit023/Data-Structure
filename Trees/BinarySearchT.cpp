@@ -183,10 +183,10 @@ node* LCA(node* root, node* n1, node* n2) {
             return root;
         }
         if(n1->data<root->data && n2->data<root->data){
-            LCA(root->left,n1,n2);
+            return LCA(root->left,n1,n2);
         }
         else if(n1->data>root->data && n2->data>root->data){
-            LCA(root->right,n1,n2);
+           return LCA(root->right,n1,n2);
 
         }
         else{
@@ -194,6 +194,42 @@ node* LCA(node* root, node* n1, node* n2) {
         }
     }
 
+//-----------------------------------------------------------------------------------
+// Q8. Recover the BST
+    node* first;
+    node* prev;
+    node* mid;
+    node* last;
+    void recover(node* root){
+        if(!root){
+            return;
+        }
+        recover(root->left);
+        if(prev!=NULL && prev->data>root->data){
+
+            //this means the first violation
+            if(first==NULL){
+                first=prev;
+                middle=root;
+            }
+
+            //this means second violation
+            else{
+                last=root;
+            }
+        }
+
+        prev=root;
+        recover(root->right);
+    }
+
+    void recoverTree(node* root){
+        first=middle=last=NULL;
+        prev=new node(INT_MIN);
+        recover(root);
+        if(first && last)swap(first->data,last->data);
+        else if(first && middle)swap(first->data,middle->data);
+    }
     
 
 

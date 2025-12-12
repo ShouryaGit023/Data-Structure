@@ -39,3 +39,12 @@ everything to the left should be smaller
  if n1 S root && n2 S root --->move to left; <br>
     n1 B root && n2 B root ---> move to right <br>
     return node iff any of n1 n2 becomes equal to node or n1 B root S n2
+
+### Q8. Recover BST when two are swapped
+just do inorder traversal and keep track of prev and curr
+<br>If curr less than pre store them
+<br>There will be two cases
+<br> a. one when swapped are not adjacent
+<br>b. swapped are adjacent
+
+<br>Swap the elements and return the node
