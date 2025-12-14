@@ -26,3 +26,5 @@ Task: connect all the ropes where the cost to connect two rope is the sum of the
 
 <br><b>Algorithm</b><br>
 Create a min heap and take two out push their sum in , if the size of heap is 1 return
+
+### 4
