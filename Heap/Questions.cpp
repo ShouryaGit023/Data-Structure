@@ -77,10 +77,111 @@ void minCost(vector<int> v,int n){
     }
     cout<<ans<<endl;
 }
+//--------------------------------------------------------------
+// Q4. kth Largest subarray sum
+void kthSumSubarray(vector<int> &v,int k){
+    priority_queue<int> mh;
+    int n=v.size();
+    for(int i=0;i<n;i++){
+        int s=0;
+        for(int j=i;j<n;j++){
+            s+=v[j];
+            mh.push(-s);
+            if(mh.size()>k){
+                mh.pop();
+            }
+        }
+    }
+    cout<<-mh.top()<<endl;
+    return;
+}
+//--------------------------------------------------------
+// Q5. Merge K-sorted array
+vector<int> mergeArray(vector<vector<int>>& mat){
+    int n=mat.size();
+    int m=mat[0].size();
+
+    //min heap storing {val,{row,col}};
+    priority_queue<
+            pair<int, pair<int,int>>,
+            vector<pair<int, pair<int,int>>>,
+            greater<pair<int, pair<int,int>>>
+        > pq;
+
+    for(int i=0;i<n;i++){
+        pq.push({mat[i][0],{i,0}}); //val,row,col
+    }
+    vector<int> ans;
+    while(!pq.empty()){
+        auto cur = pq.top();
+        pq.pop();
+
+        int val = cur.first;
+        int r   = cur.second.first;
+        int c   = cur.second.second;
+        ans.push_back(val);
+
+        //push next element from the same row after checking the bounds
+        if(c+1<m){
+            pq.push({mat[r][c+1],{r,c+1}});
+        }
+    }
+    return ans;
+}
+
+//-----------------------------------------------------------
+//Q6. Smallest Range in K lists
+vector<int> smallestRange(vector<vector<int>> &mat){
+    int k=mat.size();
+    
+    //priority queue storing val row and column
+    priority_queue<pair<int,pair<int,int>>,
+                vector<pair<int,pair<int,int>>>,
+                greater<pair<int,pair<int,int>>>
+    >pq;
+
+    int curr_max=INT_MIN; 
+
+    //push the first element of each row       
+    for(int i=0;i<k;i++){
+        pq.push({mat[i][0],{i,0}});
+        curr_max=max(curr_max,mat[i][0]);
+    }
+    int range_start=0,range_end=INT_MAX;
+    while(pq.size()==k){
+        auto curr=pq.top();
+        pq.pop();
+        int val=curr.first;
+        int r=curr.second.first;
+        int c=curr.second.second;
+
+        if(curr_max-val<range_end-range_start){
+            range_end=curr_max;
+            range_start=val;   
+        }
+        if(c+1<mat[r].size()){ //check is list is exhausted or not
+            int next_val=mat[r][c+1];
+            //push the next val and update the curr_max
+            pq.push({next_val,{r,c+1}});
+            curr_max=max(curr_max,next_val);
+        }
+        else{// if a single list is exhausted, return 
+            break;
+        }
+        
+    }
+    return {range_start,range_end};
+}
 
 
 int main(){
-    vector<int> v={4,3,2,6};
-    int n;cin>>n;
-    minCost(v,n);
+    vector<vector<int>> v={{4, 7, 9, 12, 15}, 
+               {0, 8, 10, 14, 20}, 
+               {6, 12, 16, 30, 50}
+            };
+    vector<int> ans=smallestRange(v);
+    for(auto i:ans){
+        cout<<i<<" ";
+    }
+    cout<<endl;
 }

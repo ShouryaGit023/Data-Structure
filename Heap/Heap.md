@@ -27,4 +27,32 @@ Task: connect all the ropes where the cost to connect two rope is the sum of the
 <br><b>Algorithm</b><br>
 Create a min heap and take two out push their sum in , if the size of heap is 1 return
 
-### 4
+### 4. Kth largest sum of the subArray
+Algo:<br>
+insert the sum of all the subarray possible and apply the logic of kth Largest number by using priority queue
+
+### 5. Merge K sorted array  
+Algo: <br>
+1st approach: put all the elements in pq and pop them TC is higher
+<br>2nd put only the first element of each row with row and column value, while poping them out check the bounds of next column and push that element in the pq
+
+#### Similar approach for Merge K Sorted LinkedList
+
+### 6. Smallest Range in K list:
+Algo: similar to previous one<br>
+Put the first ele of every list in min heap , maintain curr max and range start and range end
+<br>
+update range start and range end if curr max- pq.top() is less than range_end-range_start, update range_end and range_starts respectively<br>
+update the curr max
+<br>
+insert the next element from the same row of pq.top();
+<br>if one row get exhausted break out of the while loop and return the {range_start,range_end}
+
+
+### 7. Median in a Stream
+Approach 1.: use insertion sort and place the ele in their correct position and then find the mediam
+#### Why insertion sort? 
+insertion sort me when a new ele comes in stream we can simply place it to its correct position (no need to do all the sorting again)
+
+<br>
+<b>Best Approach:</b> Use heap as they are already sorted
