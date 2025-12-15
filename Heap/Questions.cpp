@@ -174,12 +174,53 @@ vector<int> smallestRange(vector<vector<int>> &mat){
 }
 
 
+//-----------------------------------------------
+//Q8. Median in the Stream;
+vector<double> medianStream(vector<int> &v){
+    int c=0;
+    //left heap----> max heap
+    // right heap------> min heap
+    priority_queue<int> l;
+    priority_queue<int,vector<int>, greater<int>> r;
+
+    //median vector
+    vector<double> med;
+
+    for(auto i:v){
+        //check for all l < all r
+        if(l.empty() || i<=l.top()){
+            l.push(i);
+        }
+        else{
+            r.push(i);
+        }
+        c++;
+
+        // Step 2: balance sizes  to maintain another invariant
+        if (l.size() > r.size() + 1) {
+            r.push(l.top());
+            l.pop();
+        } else if (r.size() > l.size()) {
+            l.push(r.top());
+            r.pop();
+        }
+        // if size is odd----> median is the l.top
+        if(c & 1){
+            med.push_back((double(l.top())));
+        }
+        // for even sizes ----> avg of the middle elements
+        else{
+            double val=(l.top()+r.top())/2.0;
+            med.push_back(val);
+        }
+    }
+    return med;
+}
+
+
 int main(){
-    vector<vector<int>> v={{4, 7, 9, 12, 15}, 
-               {0, 8, 10, 14, 20}, 
-               {6, 12, 16, 30, 50}
-            };
-    vector<int> ans=smallestRange(v);
+    vector<int> v={5, 15, 1, 3, 2, 8};
+    vector<double> ans=medianStream(v);
     for(auto i:ans){
         cout<<i<<" ";
     }

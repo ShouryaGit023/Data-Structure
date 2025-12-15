@@ -56,3 +56,8 @@ insertion sort me when a new ele comes in stream we can simply place it to its c
 
 <br>
 <b>Best Approach:</b> Use heap as they are already sorted
+<br> make two heaps 
+<br> Left heap ---> Max heap and Right heap---> Min heap
+<br> some invariant : l.size()==r.size or l.size()==r.size()+1; and all ele of left should be less than every ele of right  
+<br> odd size -----> median is l.top();
+<br> Even size-----> median is (l.top + r.top())/2;
