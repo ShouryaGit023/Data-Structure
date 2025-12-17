@@ -70,6 +70,19 @@ void bfs(int f,int n,vector<vector<int>> &adj){
     return;
 }
 
+void dfs(int f,vector<vector<int>> &adj,vector<bool> &vis){
+    vis[f]=true;
+    cout<<f<<" ";
+
+
+    for(auto i:adj[f]){
+        if(!vis[i]){
+            dfs(i,adj,vis);
+        }
+    }
+
+}
+
 
 int main(){
     int n,m;
