@@ -5,6 +5,7 @@ using namespace std;
 class TrieNode {
 public:
     TrieNode* children[26];
+    int childCount;
     bool isEnd;
 
     TrieNode() {
@@ -12,6 +13,7 @@ public:
             children[i] = nullptr;
         isEnd = false;
     }
+    childCount=0;
 };
 
 
@@ -71,8 +73,10 @@ public:
         TrieNode* node = root;
         for (char c : word) {
             int idx = c - 'a';
-            if (!node->children[idx])
+            if (!node->children[idx]){
                 node->children[idx] = new TrieNode();
+                root->childCount++;
+            }
             node = node->children[idx];
         }
         node->isEnd = true;
@@ -106,7 +110,42 @@ public:
     void remove(const string& word) {
         deleteUtil(root, word, 0);
     }
+    // Q1. Longest Common Prefix
+    string longestCommonPrefix(vector<string> &s,int n){
+    
+        Trie t;
+        //insert all the string of vectors
+        for(int i=0;i<n;i++){
+            t.insert(s[i]);
+        }
+        string f=s[0];
+        string ans="";
+    
+        for(int i=0;i<f.size();i++){
+            char c=f[i];
+    
+            if(root->childCount==1){
+                ans.push_back(c);
+
+                //aage bdho
+                int id=c-'a';
+                root=root->children[id];
+
+            }
+            else{
+                break;
+            }
+            if(root->isEnd){
+                break;
+            }
+        }
+        return ans;
+    
+    };
 };
+
+//--------------------------------------------------------------
+
 
 
   
@@ -114,7 +153,7 @@ public:
 
 int main(){
     Trie t;
-    t.insert("AB");
-    cout<<t.search("AB")<<endl;
+    vector<string> s={"abs", "absent", "abscia"};
+    t.longestCommonPrefix(s,3);
 
 }
