@@ -95,6 +95,7 @@ int countSubsequence(int id,vector<int> v,int n,int k,int &sum){
     sum-=v[id];
     int r=countSubsequence(id+1,v,n,k,sum);
     return l+r;
+    
 }
 
 //----------------------------------------------------------------------------------
