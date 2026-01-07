@@ -34,3 +34,9 @@ for directed O(n)+(Edges)
 
 - `Time Complexity:O(n*m)`
 - `Space Complexity: O(n*m)`
+
+### 4. Rotten Oranges
+- Count the time req for all oranges to be rotten
+- If some orange cant be rotten return -1
+- DO BFS (level order traversal);
+`Time and Space: O(n*m)`
