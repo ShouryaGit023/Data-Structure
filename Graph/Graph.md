@@ -20,3 +20,11 @@ for directed O(n)+(Edges)
 ### 1. Number of Provinces
 - Make a vis array and check if not vis --- do dfs traversal
 - ans ++ for every not visited found
+
+### 2. Number of Islands
+- Whenever we do bfs for any part increase the island cnt++;
+- also push that into  visited 2-d array (basic bfs approach)
+
+`Space Complexity: O(n*n)`
+
+`Time Complexity: ~O(n*n)`
