@@ -28,3 +28,9 @@ for directed O(n)+(Edges)
 `Space Complexity: O(n*n)`
 
 `Time Complexity: ~O(n*n)`
+
+### 3. Flood Fill Algorithm
+- Do either dfs or bfs keeping the initial color saved and changing the same colored components of graphs
+
+- `Time Complexity:O(n*m)`
+- `Space Complexity: O(n*m)`

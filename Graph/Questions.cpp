@@ -122,6 +122,78 @@ int numIslands(vector<vector<char>>& grid){  // 0--> water | 1---> land
  return ans;
 }
 
+// 3. Flood Fill
+void dfs(int sr,int sc,vector<vector<int>> &copyImage,vector<vector<int>>&image, int newColor,int dx[],int dy[],int iniColor){
+    int n=image.size();
+    int m=image[0].size();
+    copyImage[sr][sc]=newColor;
+    //check for neighbour
+    for(int i=0;i<4;i++){
+        int nr=sr+dx[i];
+        int nc=sc+dy[i];
+
+        if(nr>=0 && nr<n && nc>=0 && nc<m && copyImage[nr][nc]==iniColor && copyImage[nr][nc]!=newColor){
+            dfs(nr,nc,copyImage,image,newColor,dx,dy,iniColor);
+        }
+    }
+    
+
+}
+
+ vector<vector<int>> floodFill(vector<vector<int>> &image,int sr,int sc,int newColor){
+    vector<vector<int>> copyImage=image;
+    int n=image.size();
+    int m=image[0].size();
+    int color=image[sr][sc];
+    int dx[4]={-1,0,1,0};
+    int dy[4]={0,1,0,-1};
+    dfs(sr,sc,copyImage,image,newColor,dx,dy,color);
+    return copyImage;
+
+
+ }
+
+ // ✅Equivalent bfs code
+    void floodBfs(int sr, int sc, vector<vector<int>>& image,int oldColor, int newColor) {
+
+        int n = image.size();
+        int m = image[0].size();
+
+        queue<pair<int,int>> q;
+        q.push({sr, sc});
+        image[sr][sc] = newColor;
+
+        int dr[4] = {1, -1, 0, 0};
+        int dc[4] = {0, 0, 1, -1};
+
+        while (!q.empty()) {
+            int r = q.front().first;
+            int c=q.front().second;
+            q.pop();
+
+            for (int i = 0; i < 4; i++) {
+                int nr = r + dr[i];
+                int nc = c + dc[i];
+
+                if (nr >= 0 && nc >= 0 && nr < n && nc < m &&
+                    image[nr][nc] == oldColor) {
+                    
+                    image[nr][nc] = newColor;
+                    q.push({nr, nc});
+                }
+            }
+        }
+    }
+
+    vector<vector<int>> floodFill(vector<vector<int>>& image,int sr, int sc, int newColor) {
+        int oldColor = image[sr][sc];
+        if (oldColor == newColor) return image;
+
+        floodBfs(sr, sc, image, oldColor, newColor);
+        return image;
+    }
+
+
 
 //---------------------------------------------------------
 int main(){
