@@ -241,6 +241,11 @@ int orangeRotting(vector<vector<int>>& grid){
     return tm;
 }
 
+//------------------------------------------------------------------
+//5. Cycle in the Graph
+// BFS
+bool isCycleBFS(int v, vector<int> adj[])
+
 
 
 //---------------------------------------------------------

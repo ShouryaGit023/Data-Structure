@@ -40,3 +40,7 @@ for directed O(n)+(Edges)
 - If some orange cant be rotten return -1
 - DO BFS (level order traversal);
 `Time and Space: O(n*m)`
+
+### 5. Detect a Cycle in a Graph
+- Done by BFS by checking if the upcoming node is visited--> then cycle
+- Done by DFS
