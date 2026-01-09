@@ -31,3 +31,6 @@
 - take `r` as the `not taken value`
 - Return `l+r`;
 
+## Combinational Sum - I
+- Return the list containing the subarray, where each subarray sum is K
+- Can choose same element multiple times

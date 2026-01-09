@@ -98,6 +98,33 @@ int countSubsequence(int id,vector<int> v,int n,int k,int &sum){
     
 }
 
+//--------------------------------------------
+//Q4: Combinational Sum - I
+void findCombi(int ind,int target,vector<int> &v,vector<vector<int>> &ans,vector<int> &ds){
+    //base case
+    if(ind==v.size()){
+        if(target==0){
+            ans.push_back(ds);
+        }
+        return;
+    }
+
+    //pick the element
+    if(v[ind]<=target){
+        ds.push_back(v[ind]);
+        findCombi(ind,target,v,ans,ds);
+        ds.pop_back();
+    }
+    findCombi(ind+1,target,v,ans,ds);
+}
+
+vector<vector<int>> combiSum(vector<int> &v,int target){
+vector<vector<int>> ans;
+vector<int> ds;
+findCombi(0,target, v, ans,ds);
+return ans;
+}
+
 //----------------------------------------------------------------------------------
 int main(){
     int n;cin>>n;
