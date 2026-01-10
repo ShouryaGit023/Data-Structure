@@ -34,3 +34,8 @@
 ## Combinational Sum - I
 - Return the list containing the subarray, where each subarray sum is K
 - Can choose same element multiple times
+
+## Combinational Sum- II
+- We are not allowed to take a element twice
+- Also have to return unique sequences in sorted order (do the sorting and one condition check)
+- `Time Complexity: (2^n)*k`
