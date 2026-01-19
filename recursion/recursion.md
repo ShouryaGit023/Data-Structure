@@ -39,3 +39,7 @@
 - We are not allowed to take a element twice
 - Also have to return unique sequences in sorted order (do the sorting and one condition check)
 - `Time Complexity: (2^n)*k`
+
+## Subset Sum- I
+- Print the sum of each n every subset
+- Same take and not take

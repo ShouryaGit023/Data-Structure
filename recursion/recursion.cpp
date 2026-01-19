@@ -125,8 +125,10 @@ findCombi(0,target, v, ans,ds);
 return ans;
 }
 
-// Combinational Sum- II
-void findCombo2(int id,int target, vector<int>& candidates,vector<vector<int>> & ans,vector<int> & ds){
+
+//-------------------------------------------------
+//Q5. Combinational Sum- II
+ void findCombo2(int id,int target, vector<int>& candidates,vector<vector<int>> & ans,vector<int> & ds){
     if(target==0){
         ans.push_back(ds);
         return;
@@ -138,8 +140,8 @@ void findCombo2(int id,int target, vector<int>& candidates,vector<vector<int>> &
         findCombo2(id+1,target-candidates[i],candidates,ans,ds);
         ds.pop_back();
     }
-    
-}
+
+ }
 
 vector<vector<int>> combo2(vector<int> &candidates, int target){
     // sort the candidates to remove same sequences;
@@ -147,6 +149,29 @@ vector<vector<int>> combo2(vector<int> &candidates, int target){
     vector<vector<int>> ans;
     vector<int> ds;
     findCombo2(0,target,candidates,ans,ds);
+    return ans;
+}
+
+//--------------------------------------------------------------
+// Q6. Subset Sum-I
+void findSubsetSum(int id, vector<int> &arr, int n, int sum, vector<int> &ans) {
+    if (id == n) {
+        ans.push_back(sum);
+        return;
+    }
+
+    // pick
+    findSubsetSum(id + 1, arr, n, sum + arr[id], ans);
+
+    // not pick
+    findSubsetSum(id + 1, arr, n, sum, ans);
+}
+
+vector<int> subsetSum(vector<int> &arr) {
+    vector<int> ans;
+    int n = arr.size();
+    findSubsetSum(0, arr, n, 0, ans);
+    sort(ans.begin(), ans.end());
     return ans;
 }
 
@@ -161,12 +186,10 @@ int main(){
     vector<int> ans;
     cout<<endl;
 
-    int sum=0;
-    sumSequence(0,v,n,ans,3,sum);
+    ans=subsetSum(v);
+    for(auto i:ans){
+        cout<<i<<" ";
+    }
     cout<<endl;
-
-    singleSumSequence(0,v,n,ans,3,sum);
-    cout<<"the no. of subsequence are: "<<endl;
-    cout<<countSubsequence(0,v,n,3,sum)<<endl;
     
 }

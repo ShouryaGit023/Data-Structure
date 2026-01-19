@@ -244,8 +244,24 @@ int orangeRotting(vector<vector<int>>& grid){
 //------------------------------------------------------------------
 //5. Cycle in the Graph
 // BFS
-bool isCycleBFS(int v, vector<int> adj[]){
-    
+bool isCycleBFS(int src, vector<int> adj[],int vis[]){
+    vis[src]= 1;
+    queue<pair<int,int>>q;
+    q.push({src,-1});
+    while(!q.empty()){
+        int node=q.front().first;
+        int parent=q.front().second;
+        for(auto i:adj[node]){
+            if(!vis[i]){
+                vis[i]=1;
+                q.push({i,node});
+            }
+            else if(i!=parent){
+                return true; // here i is visited and it is not parent node,so cycle;
+            }
+        }
+    }
+    return false;
 }
 
 
