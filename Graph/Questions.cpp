@@ -244,7 +244,7 @@ int orangeRotting(vector<vector<int>>& grid){
 //------------------------------------------------------------------
 //5. Cycle in the Graph
 // BFS
-bool isCycleBFS(int src, vector<int> adj[],int vis[]){
+bool detectCycle(int src, vector<int> adj[],int vis[]){
     vis[src]= 1;
     queue<pair<int,int>>q;
     q.push({src,-1});
@@ -263,6 +263,22 @@ bool isCycleBFS(int src, vector<int> adj[],int vis[]){
     }
     return false;
 }
+
+bool isCycleDFS(int v,vector<int> adj[]){
+    int vis[v]={0};
+    for(int i=0;i<v;i++){
+        if(!vis[i]){
+            if(detectCycle(i,adj,vis)){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+//for multiple component thing
+//check for each not visited part of graph and call detect cycle
+
 
 
 

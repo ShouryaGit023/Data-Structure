@@ -44,3 +44,7 @@ for directed O(n)+(Edges)
 ### 5. Detect a Cycle in a Graph
 - Done by BFS by checking if the upcoming node is visited--> then cycle
 - Done by DFS
+- For component check the cycle with each not visited node
+- Graph has cycle if any of the component has cycle
+
+`Time Complexity: O(N+2*E)`
