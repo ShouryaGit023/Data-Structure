@@ -280,6 +280,21 @@ bool isCycleDFS(int v,vector<int> adj[]){
 //check for each not visited part of graph and call detect cycle
 
 
+//cycle detection using dfs
+bool cycleDFS(int node,int parent,int vis[],vector<int> adj[]){
+    vis[node]=1;
+    for(auto i:adj[node]){
+        if(!vis[i]){
+            if(cycleDFS(i,node,vis,adj))return true;
+        }
+        else if(i!=parent){
+            return true;
+        }
+    }
+    return false;
+
+}
+
 
 
 //---------------------------------------------------------

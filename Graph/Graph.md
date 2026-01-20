@@ -48,3 +48,9 @@ for directed O(n)+(Edges)
 - Graph has cycle if any of the component has cycle
 
 `Time Complexity: O(N+2*E)`
+
+
+### Cycle detection using dfs
+- Store the source and parent 
+- call the dfs
+- if the node is previously visited and is not the current parent i.e ---> cycle exists
