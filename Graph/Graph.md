@@ -54,3 +54,11 @@ for directed O(n)+(Edges)
 - Store the source and parent 
 - call the dfs
 - if the node is previously visited and is not the current parent i.e ---> cycle exists
+
+`Time Complexity: O(N+2*E)`
+
+### 6. Distance of Nearest cell having 1
+- do bfd from each one and update the level of each 0
+- the min level of each 0 is the ans for that 0
+
+`Time Complexity: O(n*m)`

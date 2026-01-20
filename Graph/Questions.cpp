@@ -294,6 +294,56 @@ bool cycleDFS(int node,int parent,int vis[],vector<int> adj[]){
     return false;
 
 }
+//----------------------------------------------------------------------
+
+//Q.6 Distance of Nearest Cell having 1
+vector<vector<int>> nearest(vector<vector<int>> grid){
+    int n=grid.size();
+    int m=grid[0].size();
+    vector<vector<int>>vis(n,vector<int>(m,0));
+    vector<vector<int>>dis(n,vector<int>(m,0));
+    queue<pair<pair<int,int>,int>> q; //stores the coordinates and level
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(grid[i][j]==1){
+                //start of bfs
+                q.push({{i,j},0});
+                vis[i][j]=1;
+            }
+            else{
+                vis[i][j]=0;
+
+            }
+        }
+    }
+
+    int dr[]={1,0,-1,0};
+    int dc[]={0,-1,0,1};
+    while(!q.empty()){
+        int it=q.front().first.first;
+        int jt=q.front().first.second;
+        int step=q.front().second;
+        q.pop();
+        dis[it][jt]=step;
+        for(int i=0;i<4;i++){
+            int nr=it+dr[i];
+            int nc=jt+dc[i];
+            if(nr>=0 && nr<n && nc>=0 && nc<m && !vis[nr][nc]){
+                vis[nr][nc]=1;
+                q.push({{nr,nc},step+1});
+            }
+        }
+
+        return dis;
+        
+
+    }
+
+}
+
+
+
 
 
 
