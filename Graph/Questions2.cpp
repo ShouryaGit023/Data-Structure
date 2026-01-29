@@ -107,6 +107,32 @@ int encalves(vector<vector<int>> grid){
 
 }
 
+//Q9. Bipartite Graph
+bool isBipartite(int src,vector<int>adj[]){
+    queue<int> q;
+    int c[src];
+    q.push(0); //0- based indexing of graph
+    for(int i=0;i<src;i++){
+        c[i]=-1;
+    }
+    c[0]=0;
+    while(!q.empty()){
+        int node=q.front();
+        q.pop();
+        for(auto i:adj[node]){
+            if(c[i]==-1){
+                c[i]=!c[node];
+                q.push(i);
+            }
+            else if(c[i]==c[node]){
+                return false;
+            }
+        }
+    }
+    return true;
+
+}
+
 
 int main(){
 

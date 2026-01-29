@@ -72,3 +72,9 @@ for directed O(n)+(Edges)
 - we have to check the number of 1's that doesnot take us out of the boundry
 - from the boundry 1's do BFS and mark every connection 1--> false;
 - Count the number of True 1's
+
+## Bipartite Graph:
+- If a graph can be colored by 2 colors so that no two adjacent node has same color
+- Linear graph w/o cycle is always Bipartite
+- Cycle with even length `can be` bipartite
+- Odd length cycle graph `can never be` bipartite
