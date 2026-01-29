@@ -66,3 +66,9 @@ for directed O(n)+(Edges)
 ### 7. Surrounded Region [Replace O with X]
 - Check for boundry O and their connections-> they wont be converted ever 
 - Rest can be converted
+
+### 8. Number of Encalves
+- Exactly same as the previous question
+- we have to check the number of 1's that doesnot take us out of the boundry
+- from the boundry 1's do BFS and mark every connection 1--> false;
+- Count the number of True 1's
