@@ -62,3 +62,7 @@ for directed O(n)+(Edges)
 - the min level of each 0 is the ans for that 0
 
 `Time Complexity: O(n*m)`
+
+### 7. Surrounded Region [Replace O with X]
+- Check for boundry O and their connections-> they wont be converted ever 
+- Rest can be converted
