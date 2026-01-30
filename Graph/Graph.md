@@ -88,3 +88,11 @@ for directed O(n)+(Edges)
 - we have to find no. of node leading to terminal nodes
 - Can be done by cycle detection technique for directed graph
 - any node part of cycle or leads to cycle can never be safe node 
+
+
+## Topological Sorting
+- `Only in Directed Acyclic Graph (DAG)`
+- If there is a connection between u and v , in linear ordering of nodes `u` always comes before `v`
+
+- Do the dfs of each node, check for connected nodes, at the end put the current node in stack, lastly pop everyone out
+- THATS YOUR TOPO SORT!

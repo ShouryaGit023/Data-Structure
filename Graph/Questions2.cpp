@@ -166,7 +166,7 @@ bool isCyclic(int v,vector<int> adj[]){
 
 
 //Q11. Find the eventual Safe states
-bool dfs(int node,vector<int> adj[],int vis[],int pathVis[],vector<int> &check){
+bool dfs(int node,vector<vector<int>> & adj,vector<int> &vis,vector<int>&pathVis,vector<int> &check){
     vis[node]=1;
     pathVis[node]=1;
     check[node]=0;
@@ -191,14 +191,15 @@ bool dfs(int node,vector<int> adj[],int vis[],int pathVis[],vector<int> &check){
     return false;
 
 }
-vector<int> eventual(int v,vector<int> adj[]){
-    int vis[v]={0};
-    int pathVis[v]={0};
+    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
+        int v=graph.size();
+        vector<int> vis(v,0);
+    vector<int>pathVis(v,0);
     vector<int> check(v,0);
     vector<int> safe;
     for(int i=0;i<v;i++){
         if(!vis[i]){
-            if(dfs(i,adj,vis,pathVis,check));
+            if(dfs(i,graph,vis,pathVis,check));
         }
     }
     for(int i=0;i<v;i++){
@@ -206,8 +207,41 @@ vector<int> eventual(int v,vector<int> adj[]){
             safe.push_back(i);
         }
     }
-    return check;
+    return safe;
     
+        
+    }
+
+
+
+    //Q12. TopoLogical Sorting
+
+void topoDFS(int src,vector<vector<int>> &adj,vector<int>&vis, stack<int> &s){
+    vis[src]=1;
+    for(auto i: adj[src]){
+        if(!vis[i]){
+
+            topoDFS(i,adj,vis,s);
+        }
+    }
+    s.push(src);
+}
+vector<int> topoSort(vector<vector<int>> &adj){
+    int v=adj.size();
+    vector<int> vis(v,0);
+    stack<int> s;
+    for(int i=0;i<v;i++){
+        if(vis[i]==0){
+            topoDFS(i,adj,vis,s);
+        }
+    }
+    vector<int> ans;
+    while(!s.empty()){
+        ans.push_back(s.top());
+        s.pop();
+    }
+    return ans;
+
 }
 
 int main(){
