@@ -78,3 +78,6 @@ for directed O(n)+(Edges)
 - Linear graph w/o cycle is always Bipartite
 - Cycle with even length `can be` bipartite
 - Odd length cycle graph `can never be` bipartite
+
+### 10. Cycle in directed Graph
+- Can be done by DFS only ---> on the same path--> node has to be visited again

@@ -133,6 +133,37 @@ bool isBipartite(int src,vector<int>adj[]){
 
 }
 
+//Q10. Cycle in Directed Graph
+bool dfs(int node,vector<int> adj[],int vis[],int pathVis[]){
+    vis[node]=1;
+    pathVis[node]=1;
+
+    //traverse for adj node
+    for(auto i:adj[node]){
+        if(!vis[i]){
+            if(dfs(i,adj,vis,pathVis)==true)return true;
+        }
+        else if(pathVis[i]){
+            return true;
+        }
+    }
+
+    //when going back undo the pathVis
+    pathVis[node]=0;
+    return false;
+
+}
+bool isCyclic(int v,vector<int> adj[]){
+    int vis[v]={0};
+    int pathVis[v]={0};
+    for(int i=0;i<v;i++){
+        if(!vis[i]){
+            if(dfs(i,adj,vis,pathVis)==true)return true;
+        }
+    }
+    return false;
+}
+
 
 int main(){
 
