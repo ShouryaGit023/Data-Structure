@@ -81,3 +81,10 @@ for directed O(n)+(Edges)
 
 ### 10. Cycle in directed Graph
 - Can be done by DFS only ---> on the same path--> node has to be visited again
+
+### 11. Find Eventual Safe State
+- Terminal Node: Having outdegree==0
+- Safe state : Node leading to terminal Nodes
+- we have to find no. of node leading to terminal nodes
+- Can be done by cycle detection technique for directed graph
+- any node part of cycle or leads to cycle can never be safe node 

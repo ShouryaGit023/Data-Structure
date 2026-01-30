@@ -165,6 +165,51 @@ bool isCyclic(int v,vector<int> adj[]){
 }
 
 
+//Q11. Find the eventual Safe states
+bool dfs(int node,vector<int> adj[],int vis[],int pathVis[],vector<int> &check){
+    vis[node]=1;
+    pathVis[node]=1;
+    check[node]=0;
+
+    //traverse for adj node
+    for(auto i:adj[node]){
+        if(!vis[i]){
+            if(dfs(i,adj,vis,pathVis,check)==true){
+                check[node]=0;
+                return true;
+            }
+        }
+        else if(pathVis[i]){
+            check[node]=0;
+            return true;
+        }
+    }
+
+    //when going back undo the pathVis
+    check[node]=1;
+    pathVis[node]=0;
+    return false;
+
+}
+vector<int> eventual(int v,vector<int> adj[]){
+    int vis[v]={0};
+    int pathVis[v]={0};
+    vector<int> check(v,0);
+    vector<int> safe;
+    for(int i=0;i<v;i++){
+        if(!vis[i]){
+            if(dfs(i,adj,vis,pathVis,check));
+        }
+    }
+    for(int i=0;i<v;i++){
+        if(check[i]==1){
+            safe.push_back(i);
+        }
+    }
+    return check;
+    
+}
+
 int main(){
 
 }
