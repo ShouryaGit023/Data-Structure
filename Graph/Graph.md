@@ -96,3 +96,6 @@ for directed O(n)+(Edges)
 
 - Do the dfs of each node, check for connected nodes, at the end put the current node in stack, lastly pop everyone out
 - THATS YOUR TOPO SORT!
+
+### Kahn's Algo
+- Topo Sort using bfs 

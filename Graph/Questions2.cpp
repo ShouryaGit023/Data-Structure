@@ -244,6 +244,39 @@ vector<int> topoSort(vector<vector<int>> &adj){
 
 }
 
+//Q13. Kahns Algo
+
+vector<int> kahn(int v,vector<vector<int>> adj){
+    vector<int> indeg(v,0);
+    for(int i=0;i<v;i++){
+        for(auto j:adj[i]){
+            indeg[j]++;
+        }
+    }
+    queue<int> q;
+    for(int i=0;i<v;i++){
+        if(indeg[i]==0){
+            q.push(i);
+        }
+    }
+    vector<int> ans;
+    while(!q.empty()){
+        int node=q.front();
+        q.pop();
+        ans.push_back(node);
+        for(auto i:adj[node]){
+            indeg[i]--;
+            if(indeg[i]==0){
+                q.push(i);
+            }
+        }
+        
+    }
+    return ans;
+}
+
+
+
 int main(){
 
 }
