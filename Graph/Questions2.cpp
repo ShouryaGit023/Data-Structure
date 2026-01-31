@@ -275,8 +275,6 @@ vector<int> kahn(int v,vector<vector<int>> adj){
     return ans;
 }
 
-
-
 int main(){
 
 }
