@@ -108,3 +108,8 @@ for directed O(n)+(Edges)
 ### 14. Cycle Detection using TopoSort
 - Toposort only valid for DAG
 - If directed graph is cyclic the toposort generated wont be of `n lengths (n--> nodes of graph)`
+
+### 15. Course Scheduler
+- Check if the graph is Cyclic or not
+- If cyclic ---> No scheduling can be done
+- Else the topo sort is one of the scheduling
