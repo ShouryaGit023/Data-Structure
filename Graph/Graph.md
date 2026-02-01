@@ -99,3 +99,12 @@ for directed O(n)+(Edges)
 
 ### Kahn's Algo
 - Topo Sort using bfs 
+- Count the indegree of each node
+- Push the node having 0 indegree in queue
+- check for its connected node and reduce their indegree by 1
+- if the indegree in 0 push into the queue
+- do this to generate the topo sort till queue!=empty
+
+### 14. Cycle Detection using TopoSort
+- Toposort only valid for DAG
+- If directed graph is cyclic the toposort generated wont be of `n lengths (n--> nodes of graph)`
