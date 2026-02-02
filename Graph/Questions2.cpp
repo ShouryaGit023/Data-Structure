@@ -307,6 +307,41 @@ bool cycleTopo(int v,vector<vector<int>> adj){
 
 }
 
+//----------------------------------------
+//Q16 Eventual Using Kahn
+vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
+        int n=graph.size();
+        vector<vector<int>> adj(n);
+        vector<int> indeg(n,0);
+        for (int u = 0; u < n; u++) {
+            for (int v : graph[u]) {
+                adj[v].push_back(u);  // reverse edge
+                indeg[u]++;           // outdegree count
+            }
+        }
+        queue<int> q;
+        for(int i=0;i<n;i++){
+            if(indeg[i]==0){
+                q.push(i);
+            }
+        }
+        vector<int> ans;
+        while(!q.empty()){
+            int node=q.front();
+            q.pop();
+            ans.push_back(node);
+            for(auto i:adj[node]){
+                indeg[i]--;
+                if(indeg[i]==0){
+                    q.push(i);
+                }
+            }
+        }
+        sort(ans.begin(),ans.end());
+        return ans;
+        
+    }
+
 int main(){
 //Graphs and application
 }

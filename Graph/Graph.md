@@ -113,3 +113,10 @@ for directed O(n)+(Edges)
 - Check if the graph is Cyclic or not
 - If cyclic ---> No scheduling can be done
 - Else the topo sort is one of the scheduling
+
+### 16. Eventual Safe State Using Kahn
+- Reverse the direction of all the connected node;
+- apply kahn and do the topo sort
+- the topo sort will be the ans
+
+`Explaination`: Eventual state que is related to outdeg, whereas kahn algo is related to indegree, so reversing the graph completely makes sense
