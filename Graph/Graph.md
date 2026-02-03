@@ -154,3 +154,7 @@ for directed O(n)+(Edges)
 
 ### 21. Shortest path in binary matrix
 - do dijkrstra....
+
+### 22. Minimum Efforts to Ride a Bike
+- Again variation of dikstraa
+- thoda sochna and think how can you actually apply the dijkstraa

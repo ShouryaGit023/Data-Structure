@@ -211,7 +211,50 @@ int binaryPath(vector<vector<int>> &grid, pair<int, int> source,
             return dist[destination.first][destination.second];
         }
         return -1;
+    } 
+//------------------------------------------
+//Q23. Path with minimum efforts
+int minimumEffortPath(vector<vector<int>>& h) {
+        int n=h.size();
+        int m=h[0].size();
+        vector<vector<int>> dis(n,vector<int>(m,INT_MAX));
+        dis[0][0]=0;
+priority_queue<
+        pair<int, pair<int,int>>,
+        vector<pair<int, pair<int,int>>>,
+        greater<pair<int, pair<int,int>>>
+    > p;        
+    p.push({0,{0,0}});
+        int dx[4]={1,0,-1,0};
+        int dy[4]={0,1,0,-1};
+        while(!p.empty()){
+            
+            int d=p.top().first;
+            int x=p.top().second.first;
+            int y=p.top().second.second;
+            p.pop();
+            if(d>dis[x][y])continue;
+            for(int i=0;i<4;i++){
+                int nx=x+dx[i];
+                int ny=y+dy[i];
+                if(nx<n && nx>=0 && ny<m && ny>=0){
+                    int nv=h[nx][ny];
+                    int cv=h[x][y];
+                    int diff=abs(cv-nv);
+                    int newEff=max(d,diff);
+                    if(newEff<dis[nx][ny]){
+
+                        dis[nx][ny]=newEff;
+                        p.push({newEff,{nx,ny}});
+                    }
+                }
+            }
+        }
+        return dis[n-1][m-1];
+        
     }    
+    
+
 
 int main(){
 
