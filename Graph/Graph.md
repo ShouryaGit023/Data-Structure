@@ -125,3 +125,8 @@ for directed O(n)+(Edges)
 - given strings in sorted order as per alien dict
 - provide one valid order of characteres
 - simply application of kahn in strings
+
+### 18 Shortest Path in Weighted Directed Graph
+- Store Edge and weight
+- Find the Topo Sort
+- update the dist to be min of node+path distance
