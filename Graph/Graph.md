@@ -151,3 +151,6 @@ for directed O(n)+(Edges)
 - do dijkstra but keep a track of parent node 
 - while changing the distance change the parent as well
 - in the end backtrack the parents , thats how we'll have the path
+
+### 21. Shortest path in binary matrix
+- do dijkrstra....

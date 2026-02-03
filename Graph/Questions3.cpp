@@ -175,6 +175,44 @@ priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> p;
         
     }   
 
+// Q21. Shortest path in binary matrix
+int binaryPath(vector<vector<int>> &grid, pair<int, int> source,
+                     pair<int, int> destination) {
+        // code here
+        
+        int n=grid.size();
+        int m=grid[0].size();
+        vector<vector<int>> dist(n,vector<int>(m,INT_MAX));
+        dist[source.first][source.second]=0;
+        queue<pair<int,pair<int,int>>>p;  //dist,{x,y}
+        p.push({0,{source.first,source.second}});
+        int dx[4]={1,0,-1,0};
+        int dy[4]={0,1,0,-1};
+        while(!p.empty()){
+            int d=p.front().first;
+            int x=p.front().second.first;
+            int y=p.front().second.second;
+            p.pop();
+            
+            for(int i=0;i<4;i++){
+                int nx=x+dx[i];
+                int ny=y+dy[i];
+                
+                if(nx<n && nx>=0 && ny<m && ny>=0 && grid[nx][ny]==1 && d+1<dist[nx][ny]){
+                    dist[nx][ny]=d+1;
+                    p.push({d+1,{nx,ny}});
+                    
+                    
+                }
+            }
+            
+        }
+        if(dist[destination.first][destination.second]!=INT_MAX){
+            return dist[destination.first][destination.second];
+        }
+        return -1;
+    }    
+
 int main(){
 
 }
