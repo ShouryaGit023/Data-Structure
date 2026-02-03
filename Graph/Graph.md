@@ -120,3 +120,8 @@ for directed O(n)+(Edges)
 - the topo sort will be the ans
 
 `Explaination`: Eventual state que is related to outdeg, whereas kahn algo is related to indegree, so reversing the graph completely makes sense
+
+### 17. Alien Dictionary
+- given strings in sorted order as per alien dict
+- provide one valid order of characteres
+- simply application of kahn in strings

@@ -342,6 +342,70 @@ vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
         
     }
 
+    //-------------------------------------------
+    //Q17---> Alien Dictionary
+string findOrder(vector<string> &dict) {
+        vector<vector<int>> adj(26);
+        vector<int> indeg(26, 0);
+        vector<bool> present(26, false);
+
+        int n = dict.size();
+
+        // mark present characters
+        for (auto &w : dict)
+            for (char c : w)
+                present[c - 'a'] = true;
+
+        // build graph
+        for (int i = 0; i < n - 1; i++) {
+            string &a = dict[i];
+            string &b = dict[i + 1];
+            int len = min(a.size(), b.size());
+            bool found = false;
+
+            for (int j = 0; j < len; j++) {
+                if (a[j] != b[j]) {
+                    adj[a[j] - 'a'].push_back(b[j] - 'a');
+                    indeg[b[j] - 'a']++;
+                    found = true;
+                    break;
+                }
+            }
+
+            // invalid prefix case
+            if (!found && a.size() > b.size())
+                return "";
+        }
+
+        // Kahn's algorithm
+        queue<int> q;
+        for (int i = 0; i < 26; i++) {
+            if (present[i] && indeg[i] == 0)
+                q.push(i);
+        }
+
+        string ans;
+        while (!q.empty()) {
+            int u = q.front(); q.pop();
+            ans.push_back(char(u + 'a'));
+
+            for (int v : adj[u]) {
+                if (--indeg[v] == 0)
+                    q.push(v);
+            }
+        }
+
+        // cycle check
+        for (int i = 0; i < 26; i++)
+            if (present[i] && indeg[i] > 0)
+                return "";
+
+        return ans;
+    }
+
+    //--------------------------
+
+
 int main(){
 //Graphs and application
 }
