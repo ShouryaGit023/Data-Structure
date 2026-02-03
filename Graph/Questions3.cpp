@@ -252,7 +252,52 @@ priority_queue<
         }
         return dis[n-1][m-1];
         
-    }    
+    }
+
+    
+//--------------------------------------------------
+//Q23. Minimum flights
+int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+        vector<pair<int,int>> adj[n];
+        for(auto i:flights){
+            int u=i[0];
+            int v=i[1];
+            int price=i[2];
+            adj[u].push_back({v,price});
+        }
+        vector<int> dist(n,INT_MAX);
+        dist[src]=0;
+        
+        queue<pair<int,pair<int,int>>>p; //stops,node,price
+                       
+        p.push({0,{src,0}});
+        while(!p.empty()){
+            auto it= p.front();
+            p.pop();
+            int stops=it.first;
+            int node=it.second.first;
+            int price=it.second.second;
+            
+            if(stops>k)continue;
+            
+            for(auto i:adj[node]){
+                int adjN=i.first;
+                int w=i.second;
+                
+                if(w+price<dist[adjN] && stops<=k){
+                    dist[adjN]=w+price;
+                    p.push({stops+1,{adjN,dist[adjN]}});
+                }
+            }
+        }
+        
+        
+        
+        if(dist[dst]==INT_MAX)return -1;
+        return dist[dst];
+        
+        
+    }
     
 
 
