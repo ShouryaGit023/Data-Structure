@@ -145,3 +145,9 @@ for directed O(n)+(Edges)
 #### Set Method
 - Uses set To just delete/erase already existing path pairs if the smallest is found
 - Increase the TC by very minute difference
+
+
+### 20. Shortest Path using Dijkstraa
+- do dijkstra but keep a track of parent node 
+- while changing the distance change the parent as well
+- in the end backtrack the parents , thats how we'll have the path

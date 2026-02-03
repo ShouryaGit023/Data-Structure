@@ -130,6 +130,51 @@ priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> p;
         
     }
 
+
+// Q 20. Shortest Path using Dijkstra
+ vector<int> pathSeq(int n, int m, vector<vector<int>>& edges) {
+        // Code here
+        vector<pair<int,int>> adj[n+1];
+        for(auto i:edges){
+            adj[i[0]].push_back({i[1],i[2]});
+            adj[i[1]].push_back({i[0],i[2]});
+        }
+        vector<int> parent(n+1,0);
+        for(int i=0;i<n+1;i++){
+            parent[i]=i;
+        }
+        vector<int> dist(n+1,INT_MAX);
+        dist[1]=0;
+        priority_queue<pair<int,int> ,vector<pair<int,int>>, greater<pair<int,int>>> p;
+        p.push({0,1});
+        while(!p.empty()){
+            int node=p.top().second;
+            int w=p.top().first;
+            p.pop();
+            if(w>dist[node])continue;
+            
+            for(auto i:adj[node]){
+                if(i.second+w<dist[i.first]){
+                    dist[i.first]=i.second+w;
+                    parent[i.first]=node;
+                    p.push({dist[i.first],i.first});
+                }
+            }
+        }
+        if(dist[n]==INT_MAX)return {-1};
+        vector<int> ans;
+        int curr=n;
+        while(parent[curr]!=curr){
+            ans.push_back(curr);
+            curr=parent[curr];
+        }
+        ans.push_back(1);
+        // ans.push_back(dist[n]);
+        reverse(ans.begin(),ans.end());
+        return ans;
+        
+    }   
+
 int main(){
 
 }
