@@ -3,7 +3,7 @@ using namespace std;
 
 
 //Q18. Shortest path for each node using topo sort
-void topoSort(int node,vector<pair<int,int>>adj[],vector<int>& vis,stack<int> &s){
+    void topoSort(int node,vector<pair<int,int>>adj[],vector<int>& vis,stack<int> &s){
       vis[node]=1;
       for(auto i:adj[node]){
           int v=i.first;
@@ -59,6 +59,41 @@ void topoSort(int node,vector<pair<int,int>>adj[],vector<int>& vis,stack<int> &s
                 }
             }
             return dist;
+    }
+
+
+ //-------------------------------------------------------
+ //Q19. Shortest Path for unit weight Path in undirected Graph   
+ vector<int> shortestUnit(int V, vector<vector<int>> &edges, int src) {
+        // code here
+        int E=edges.size();
+        vector<vector<int>> adj(V);
+        for(int i=0;i<E;i++){
+            adj[edges[i][0]].push_back(edges[i][1]);
+            adj[edges[i][1]].push_back(edges[i][0]);
+        }
+        vector<int> dist(V,INT_MAX);
+        queue<int> q;
+
+        dist[src] = 0;
+        q.push(src);
+
+        while (!q.empty()) {
+            int node = q.front();
+            q.pop();
+
+            for (auto nbr : adj[node]) {
+                if (dist[node] + 1 < dist[nbr]) {
+                    dist[nbr] = dist[node] + 1;
+                    q.push(nbr);
+                }
+            }
+        }
+         for (int i = 0; i < V; i++) {
+            if (dist[i] == INT_MAX)
+                dist[i] = -1;
+        }
+        return dist;
     }
 
 

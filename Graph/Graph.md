@@ -130,3 +130,7 @@ for directed O(n)+(Edges)
 - Store Edge and weight
 - Find the Topo Sort
 - update the dist to be min of node+path distance
+
+### 19. Shortest Path in Unit Weight Undirected Graph
+- do a simple bfs with weight
+- update the minimum distances
