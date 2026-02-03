@@ -139,3 +139,9 @@ for directed O(n)+(Edges)
 #### Priority Queue Method
 - Similar to BFS,
 - Instead using PQ to store {dist, node}
+- `Doesnt work for negative weight and Graph having Cycle`
+- `Time Complexity: E*(logV)`
+
+#### Set Method
+- Uses set To just delete/erase already existing path pairs if the smallest is found
+- Increase the TC by very minute difference
