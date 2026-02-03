@@ -134,3 +134,8 @@ for directed O(n)+(Edges)
 ### 19. Shortest Path in Unit Weight Undirected Graph
 - do a simple bfs with weight
 - update the minimum distances
+
+## Dijkstra's Algo
+#### Priority Queue Method
+- Similar to BFS,
+- Instead using PQ to store {dist, node}

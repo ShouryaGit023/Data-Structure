@@ -96,6 +96,39 @@ using namespace std;
         return dist;
     }
 
+//------------------------------------------------------------------------------
+//Q. Dijkstraa Algo
+vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
+        // Code here
+        vector<pair<int,int>> adj[V];
+        for(int i=0;i<edges.size();i++){
+            int u=edges[i][0];
+            int v=edges[i][1];
+            int w=edges[i][2];
+            adj[u].push_back({v,w});
+            adj[v].push_back({u,w});
+        }
+        //start of bfs
+        vector<int> dist(V,INT_MAX);
+        
+        dist[src]=0;
+priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> p;
+        p.push({0,src}); //insert in {dist,node}
+        while(!p.empty()){
+            int node=p.top().second;
+            int w=p.top().first;
+            p.pop();
+            if (w > dist[node]) continue;
+            for(auto i:adj[node]){
+                if(w+i.second<dist[i.first]){
+                    dist[i.first]=w+i.second;
+                    p.push({dist[i.first],i.first});
+                }
+            }
+        }
+        return dist;
+        
+    }
 
 int main(){
 
