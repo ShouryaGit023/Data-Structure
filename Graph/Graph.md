@@ -177,3 +177,6 @@ for directed O(n)+(Edges)
 - repeatedly find the shortest path in parts
 - To check for negative cycle, the [i][i] cell should be always 0, if its < 0 than there exist negative cycle 
 -  `Time Complexity: O(n*n*n)`
+
+### Q26. find the city with minimum reachable city
+- follow up question of floyd warshall

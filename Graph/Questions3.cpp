@@ -374,6 +374,48 @@ void floydWarshall(vector<vector<int>> &dist){
         }
     }
 }
+//------------------------------------------------------------------
+//Q26. Minimum reachable cities
+int findCity(int n, int m, vector<vector<int>>& edges, int dt) {
+        // Your code here
+        vector<vector<int>> vec(n, vector<int>(n, INT_MAX));
+
+        for(int i = 0; i < n; i++){
+            vec[i][i] = 0;
+        }
+
+        for(auto &e : edges){
+            int u = e[0];
+            int v = e[1];
+            int w = e[2];
+            vec[u][v] = min(vec[u][v], w);
+            vec[v][u] = min(vec[v][u], w);
+        }
+        for(int val=0;val<n;val++){
+            for(int i=0;i<n;i++){
+                for(int j=0;j<n;j++){
+                    if(vec[i][val]!=INT_MAX && vec[val][j]!=INT_MAX){
+                        vec[i][j]=min(vec[i][j], vec[i][val]+vec[val][j]);
+                    }
+                }
+            }
+        }
+
+        int sd=INT_MAX;
+        int mn=-1;
+        for(int i=0;i<n;i++){
+            int csd=0;
+            for(int j=0;j<n;j++){
+                if(vec[i][j]<=dt)csd++;
+            }
+            if(csd<=sd){
+                sd=csd;
+                mn=max(i,mn);
+            }
+        }
+        
+        return mn;
+    }
 
     
 
