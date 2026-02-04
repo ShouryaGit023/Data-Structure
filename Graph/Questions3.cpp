@@ -298,6 +298,37 @@ int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int
         
         
     }
+//----------------------------------------------------
+// Q23. Minimum Multiplication to Reach End
+int minimumMultiplications(vector<int>& arr, int start, int end) {
+        // code here
+        int n=arr.size();
+        priority_queue<pair<int,int>,
+                        vector<pair<int,int>>,
+                        greater<pair<int,int>>> p;
+        p.push({0,start});
+        vector<int> ans(100000,INT_MAX);
+        ans[start]=0;
+        while(!p.empty()){
+            int node=p.top().second;
+            int d=p.top().first;
+            p.pop();
+            
+            for(auto i:arr){
+                int val=(i*node)%100000;
+                if(d+1<ans[val]){
+                    ans[val]=d+1;
+                    p.push({ans[val],val});
+                }
+            }
+            
+        }
+        if(ans[end]==INT_MAX){
+            return -1;
+        }
+        return ans[end];
+    }
+
     
 
 

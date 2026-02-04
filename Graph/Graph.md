@@ -158,3 +158,8 @@ for directed O(n)+(Edges)
 ### 22. Minimum Efforts to Ride a Bike
 - Again variation of dikstraa
 - thoda sochna and think how can you actually apply the dijkstraa
+
+### 23. Minimum Multiplication to Reach End
+- It was one of the CF div 3 que 5th
+- Do either simple bfs or can also be solve using dijkstra
+- push the dis and multiplied value to queue
