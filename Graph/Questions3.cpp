@@ -340,10 +340,10 @@ vector<int> bellmanFord(int V, vector<vector<int>>& edges, int src) {
 	
 	for (int i = 0; i < V; i++) {
 	    
-		for (vector<int> edge : edges) {
-			int u = edge[0];
-			int v = edge[1];
-			int wt = edge[2];
+		for (auto it: edges) {
+			int u = it[0];
+			int v = it[1];
+			int wt = it[2];
 			if (dist[u] != 1e8 && dist[u] + wt < dist[v]) {
 			    
                 // If this is the Vth relaxation, then there is
@@ -358,6 +358,21 @@ vector<int> bellmanFord(int V, vector<vector<int>>& edges, int src) {
 	}
 
     return dist;
+}
+
+//------------------------------------------------------
+//Q25. Floyd Warshall
+void floydWarshall(vector<vector<int>> &dist){
+    int n=dist.size();
+    for(int val=0;val<n;val++){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(dist[i][val]!=INT_MAX && dist[val][j]!=INT_MAX){
+                    dist[i][j]=min(dist[i][j], dist[i][val]+dist[val][j]);
+                }
+            }
+        }
+    }
 }
 
     

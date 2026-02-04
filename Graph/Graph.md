@@ -170,3 +170,10 @@ for directed O(n)+(Edges)
 - Same as Dijkstraa but we have to do (n-1)relaxation to get the shortest path
 - `Relaxation:` check reach distance is less than the current distance of node or not and update accordingly
 - `How to check for negative cycle:` if after n-1 relaxtion, i.e in nth iteration we find change in the distance array we say there exist a negative cycle
+
+- `Time Complexity: (V*E)`
+
+## Floyd Warshal Algo (Multisource shortest path)
+- repeatedly find the shortest path in parts
+- To check for negative cycle, the [i][i] cell should be always 0, if its < 0 than there exist negative cycle 
+-  `Time Complexity: O(n*n*n)`
