@@ -163,3 +163,10 @@ for directed O(n)+(Edges)
 - It was one of the CF div 3 que 5th
 - Do either simple bfs or can also be solve using dijkstra
 - push the dis and multiplied value to queue
+
+
+## Bellman Ford Algo
+- Applicable only in DG(directed Graph)
+- Same as Dijkstraa but we have to do (n-1)relaxation to get the shortest path
+- `Relaxation:` check reach distance is less than the current distance of node or not and update accordingly
+- `How to check for negative cycle:` if after n-1 relaxtion, i.e in nth iteration we find change in the distance array we say there exist a negative cycle
