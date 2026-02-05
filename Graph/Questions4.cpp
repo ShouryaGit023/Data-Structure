@@ -143,6 +143,33 @@ int findCircleNum(vector<vector<int>>& v) {
         return s.size();
     }
 
+//-----------------------------------------
+//Min no of operation to connect the graph
+int makeConnected(int n, vector<vector<int>>& v) {
+        DSU d(n);
+        int e=0;
+        for(auto i:v){
+            int u=i[0];
+            int p=i[1];
+            if(d.find(u)!=d.find(p)){
+                d.unite(u,p);
+            }
+            else{
+                e++;
+            }
+        }
+        set<int> s;
+        for(int i=0;i<n;i++){
+            s.insert(d.find(i));
+        }
+        int ans=s.size()-1;
+        if(e>=ans){
+            return ans;
+        }
+        return -1;
+        
+    }
+
 int main(){
 
 }

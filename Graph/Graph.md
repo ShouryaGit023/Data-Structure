@@ -212,3 +212,8 @@ for directed O(n)+(Edges)
 - Simply count the the No. of Ultimate parents
 - This can be done by applying bfs/dfs on every node
 - the number of times we applied bfs/dfs is ans
+
+### Min number of operation to make graph connected
+- count different componenets and extra edges
+- ans is always diff comp-1 when extra edges>=ans
+
