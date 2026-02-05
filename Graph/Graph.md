@@ -180,3 +180,17 @@ for directed O(n)+(Edges)
 
 ### Q26. find the city with minimum reachable city
 - follow up question of floyd warshall
+
+
+## Minimum Spanning Tree
+- Undirected Weighted Graph
+- Tree having N nodes and N-1 edges and all nodes are reachable from each other
+- Any tree with the least sum is the minimum Spanning Tree
+
+
+## Prims Algo
+- To find the minimum spanning Tree
+
+### Q1. Sum of MST
+-
+-
