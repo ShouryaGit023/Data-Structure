@@ -192,5 +192,12 @@ for directed O(n)+(Edges)
 - To find the minimum spanning Tree
 
 ### Q1. Sum of MST
--
--
+- insert the first element with weight of 0
+- Then insert its neighbours
+- add the weight only while taking the element out of the pq and checking whether they are visited or not
+- By this we greedily find the minimum path weight
+- `Time Complexity: O(E*logE)`
+
+## Disjoint Set Union
+- to check whether the node belong to same component or not
+- `Time Complexity: O(4*alpha)---> alpha ~1` so tc is constant

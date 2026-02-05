@@ -23,7 +23,7 @@ int spanningTree(int V, vector<vector<int>>& edges) {
         > pq;
 
         vector<int> vis(V, 0);
-        pq.push({0, 0
+        pq.push({0, 0});   // {weight, node}
 
         int sum = 0;
 
@@ -51,6 +51,44 @@ int spanningTree(int V, vector<vector<int>>& edges) {
 
         return sum;
     }
+
+//-----------------------------------------
+// DSU
+class DSU {
+public:
+    vector<int> parent, rankv;
+
+    DSU(int n) {
+        parent.resize(n);
+        rankv.resize(n, 0);
+        for (int i = 0; i < n; i++)
+            parent[i] = i;
+    }
+
+    // Find with path compression
+    int find(int x) {
+        if (parent[x] != x)
+            parent[x] = find(parent[x]);
+        return parent[x];
+    }
+
+    // Union by rank
+    void unite(int u, int v) {
+        int pu = find(u);
+        int pv = find(v);
+        if (pu == pv) return;
+
+        if (rankv[pu] < rankv[pv])
+            parent[pu] = pv;
+        else if (rankv[pv] < rankv[pu])
+            parent[pv] = pu;
+        else {
+            parent[pv] = pu;
+            rankv[pu]++;
+        }
+    }
+};
+
 
 
 int main(){
