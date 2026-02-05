@@ -201,3 +201,9 @@ for directed O(n)+(Edges)
 ## Disjoint Set Union
 - to check whether the node belong to same component or not
 - `Time Complexity: O(4*alpha)---> alpha ~1` so tc is constant
+
+### Kruskal Algo
+- to find mst path weight using DSU
+- sort every connection by weight (lowest first);
+- if two nodes are previously not connect take union of them and add the weight
+- if already a part of same componenet, dont do anything

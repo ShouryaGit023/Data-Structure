@@ -89,7 +89,37 @@ public:
     }
 };
 
+//---------------------------------------------------------
+// Kruskal Algo
+int kruskalsMST(int V, vector<vector<int>> &edges) {
+        DSU d(V);
+        int ans = 0;
 
+        // {weight, {u, v}}
+        vector<pair<int, pair<int,int>>> ed;
+
+        for (auto &e : edges) {
+            int u = e[0];
+            int v = e[1];
+            int w = e[2];
+            ed.push_back({w, {u, v}});
+        }
+
+        sort(ed.begin(), ed.end());
+
+        for (auto &e : ed) {
+            int u = e.second.first;
+            int v = e.second.second;
+            int w = e.first;
+
+            if (d.find(u) != d.find(v)) {
+                d.unite(u, v);
+                ans += w;
+            }
+        }
+
+        return ans;
+    }
 
 int main(){
 
