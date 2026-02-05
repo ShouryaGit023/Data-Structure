@@ -121,6 +121,28 @@ int kruskalsMST(int V, vector<vector<int>> &edges) {
         return ans;
     }
 
+//---------------------------------------------
+// Finding number of Components using DSU
+int findCircleNum(vector<vector<int>>& v) {
+        int n = v.size();
+        DSU d(n);
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) { 
+                if (v[i][j] == 1) {
+                    d.unite(i, j); 
+                }
+            }
+        }
+
+        unordered_set<int> s;
+        for (int i = 0; i < n; i++) {
+            s.insert(d.find(i));
+        }
+
+        return s.size();
+    }
+
 int main(){
 
 }

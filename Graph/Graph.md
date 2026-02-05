@@ -207,3 +207,8 @@ for directed O(n)+(Edges)
 - sort every connection by weight (lowest first);
 - if two nodes are previously not connect take union of them and add the weight
 - if already a part of same componenet, dont do anything
+
+### Number of Provinces using DSU
+- Simply count the the No. of Ultimate parents
+- This can be done by applying bfs/dfs on every node
+- the number of times we applied bfs/dfs is ans
