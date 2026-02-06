@@ -221,3 +221,6 @@ for directed O(n)+(Edges)
 - increamenet for each new island
 - check 4 sides for connection, with each new connection reduce the count by 1
 - USE DSU for this
+
+
+## Kosaraju Algo
