@@ -20,3 +20,8 @@
 
 ## MIN No. OF COINS
   Given a array of coins, find min number of coin req to add up to k
+
+### 3. Frog Jump
+- Frog want to jump from 1--->n
+- Can jump either 1 or 2 places
+- Find minimum energy required by him
