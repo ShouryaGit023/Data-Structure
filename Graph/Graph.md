@@ -217,3 +217,7 @@ for directed O(n)+(Edges)
 - count different componenets and extra edges
 - ans is always diff comp-1 when extra edges>=ans
 
+### Number of connected Island II (Online Queries)
+- increamenet for each new island
+- check 4 sides for connection, with each new connection reduce the count by 1
+- USE DSU for this

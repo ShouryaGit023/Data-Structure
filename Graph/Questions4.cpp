@@ -170,6 +170,50 @@ int makeConnected(int n, vector<vector<int>>& v) {
         
     }
 
+//------------------------------------
+// Minimum Numbers of Islands II
+vector<int> numOfIslands(int n, int m, vector<vector<int>> &q) {
+        // code here
+        vector<vector<int>> v(n,vector<int> (m,0));
+        DSU d(n*m+1);
+        int cnt=0;
+        vector<vector<int>> vis(n,vector<int>(m,0));
+        int k=q.size();
+        int dx[4]={-1,0,1,0};
+        int dy[4]={0,1,0,-1};
+        vector<int> ans;
+        for (auto &x : q) {
+            int a = x[0], b = x[1];
+
+            if (vis[a][b]) {
+                ans.push_back(cnt);
+                continue;
+            }
+
+            vis[a][b] = 1;
+            cnt++;
+
+            int id = a * m + b;
+
+            for (int i = 0; i < 4; i++) {
+                int ni = a + dx[i];
+                int nj = b + dy[i];
+
+                if (ni >= 0 && ni < n && nj >= 0 && nj < m && vis[ni][nj]) {
+                    int nid = ni * m + nj;
+                    if (d.find(id) != d.find(nid)) {
+                        d.unite(id, nid);
+                        cnt--;
+                    }
+                }
+            }
+            ans.push_back(cnt);
+        }
+            
+        
+        return ans;   
+    }    
+
 int main(){
 
 }
