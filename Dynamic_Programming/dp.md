@@ -25,3 +25,4 @@
 - Frog want to jump from 1--->n
 - Can jump either 1 or 2 places
 - Find minimum energy required by him
+- 
