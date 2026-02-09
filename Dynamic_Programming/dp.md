@@ -26,3 +26,5 @@
 - Can jump either 1 or 2 places
 - Find minimum energy required by him
 - 
+
+asdfasdfadsf
