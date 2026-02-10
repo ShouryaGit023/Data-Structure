@@ -113,6 +113,30 @@ int findMaxSum(vector<int>& v) {
         
         
     }
+    //--------------------------------------------------
+//Q3. House Robbery
+int robLinear(vector<int>& nums, int l, int r) {
+    int len = r - l + 1;
+    vector<int> dp(len);
+
+    dp[0] = nums[l];
+    if (len > 1)
+        dp[1] = max(nums[l], nums[l+1]);
+
+    for (int i = 2; i < len; i++) {
+        dp[i] = max(nums[l+i] + dp[i-2], dp[i-1]);
+    }
+    return dp[len-1];
+}
+
+    int rob(vector<int>& nums) {
+        int n=nums.size();
+        if(n==1)return nums[0];
+        if(n==2)return max(nums[0],nums[1]);
+        int c1=robLinear(nums,0,n-2);
+        int c2=robLinear(nums,1,n-1);
+        return max(c1,c2);
+    }
 
 
 int main(){

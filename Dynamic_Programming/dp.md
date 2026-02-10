@@ -32,3 +32,11 @@
 - same pick not pick,
 - but applying the dp and memoisation in this
 
+### 5. House Robbery
+- cannot rob from adjacent house
+- twist is that houses are in circular array
+- take c1- 0--- n-2
+- take c2-> 1---n-1 
+- as first and last house are never taken together
+- take the minimum of this then
+
