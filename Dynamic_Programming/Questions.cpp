@@ -57,6 +57,62 @@ int minCost(vector<int>& height) {
         }
         return dp[n-1];
     }
+//------------------------------------------------------------------------------------------
+//Q2. Max sum of non adjacent element
+//Recursion part
+int f(int ind,vector<int> &v){
+      if(ind<0)return 0;
+      int pick=v[ind]+f(ind-2,v);
+      int np=0+f(ind-1,v);
+      return max(pick,np);
+  }
+    // calculate the maximum sum with out adjacent
+    int findMaxSum(vector<int>& v) {
+        // code here
+        int n=v.size();
+        return f(n-1,v);
+        
+    }
+
+//DP memoisation
+int f(int ind,vector<int> &v, vector<int> &dp){
+      if(ind<0)return 0;
+      if(dp[ind]!=-1){
+          return dp[ind];
+      }
+      int pick=v[ind]+f(ind-2,v,dp);
+      int np=0+f(ind-1,v,dp);
+      return dp[ind]=max(pick,np);
+  }
+    // calculate the maximum sum with out adjacent
+    int findMaxSum(vector<int>& v) {
+        // code here
+        int n=v.size();
+        vector<int> dp(n,-1);
+        f(n-1,v,dp);
+        return dp[n-1];
+        
+        
+    }
+
+//Tabulation
+int findMaxSum(vector<int>& v) {
+        // code here
+        int n=v.size();
+        vector<int> dp(n,-1);
+        dp[0]=v[0];
+        for(int i=1;i<n;i++){
+            int p=v[i];
+            
+            if(i>=2)p+=dp[i-2];
+            int np=0+dp[i-1];
+            
+            dp[i]=max(p,np);
+        }
+        return dp[n-1];
+        
+        
+    }
 
 
 int main(){
