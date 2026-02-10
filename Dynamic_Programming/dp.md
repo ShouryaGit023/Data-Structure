@@ -25,6 +25,10 @@
 - Frog want to jump from 1--->n
 - Can jump either 1 or 2 places
 - Find minimum energy required by him
-- 
+- Try all possible way from one index
+- take minimum of that while storing the values
 
-asdfasdfadsf
+### 4. Maximum sum of non adjacent elements
+- same pick not pick,
+- but applying the dp and memoisation in this
+
