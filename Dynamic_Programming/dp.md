@@ -40,3 +40,9 @@
 - as first and last house are never taken together
 - take the minimum of this then
 
+### 6. Ninja Training
+- on particular day he can train any from 3
+- next day can choose any but not the last day one
+- find the max training skill gained
+- do a 2d dp and check for all the possibilities
+
