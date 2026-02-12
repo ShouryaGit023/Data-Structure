@@ -46,3 +46,5 @@
 - find the max training skill gained
 - do a 2d dp and check for all the possibilities
 
+ ### 12 Feb nai ho paya--- did fake commit
+
