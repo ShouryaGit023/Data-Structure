@@ -168,6 +168,30 @@ int solve(int day,int last,vector<vector<int>> &mat,vector<vector<int>> &dp){
 
         
     }
+
+//---------------------------------------------
+// Q5. No of Unique Paths
+int solve(int m,int n,int a,int b,vector<vector<int>> &dp){
+        if(a==(m-1) && b==(n-1)){
+            return 1;
+        }
+        if(a>=m || b>=n){
+            return 0;
+        }
+        if(dp[a][b]!=-1){
+            return dp[a][b];
+        }
+        int left=solve(m,n,a+1,b,dp);
+        int right=solve(m,n,a,b+1,dp);
+        return dp[a][b]=left+right;
+    }
+    int numberOfPaths(int m, int n) {
+        // code here
+        vector<vector<int>>dp(m,vector<int>(n,-1));
+        return solve(m,n,0,0,dp);
+        
+        
+    }
         
 
 
