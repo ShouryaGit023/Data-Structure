@@ -48,5 +48,10 @@
 
  ### 7.No. of Unique Path
  - Count all the path and return 
- - 
+ - memoize or tabulate to produce the fastest approach
+
+ ### 8. Minimum Path sum
+ - Do all the paths and count the sum
+ - use dp
+ - that all
 

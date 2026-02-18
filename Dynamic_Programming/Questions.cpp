@@ -231,6 +231,25 @@ int solve(int i,int j,vector<vector<int>> &grid,vector<vector<int>> &dp){
         vector<vector<int>> dp(n,vector<int>(m,-1));
         return solve(n-1,m-1,grid,dp);
     }
+
+//-----------------------------------------------------------------
+// Q6. Minimum Path Sum
+int solve(int i,int j,vector<vector<int>> &v,vector<vector<int>> &dp){
+        if(i<0 || j<0)return 1e5;
+        if(i==0 && j==0)return v[0][0];
+        if(dp[i][j]!=-1)return dp[i][j];
+        int l=v[i][j]+solve(i-1,j,v,dp);
+        int r=v[i][j]+solve(i,j-1,v,dp);
+        return dp[i][j]=min(l,r);
+    }
+    int minPathSum(vector<vector<int>>& v) {
+        int n=v.size();
+        int m=v[0].size();
+        vector<vector<int>> dp(n,vector<int>(m,-1));
+
+        return solve(n-1,m-1,v,dp);
+        
+    }
         
 
 
