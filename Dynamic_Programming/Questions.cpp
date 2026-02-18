@@ -209,6 +209,28 @@ int solve(int m,int n,int a,int b,vector<vector<int>> &dp){
         
         
     }
+
+//Unique path with obstacle
+int solve(int i,int j,vector<vector<int>> &grid,vector<vector<int>> &dp){
+    //this condition first as [0][0] might also have a obstacle
+        if((i<0 || j<0) || grid[i][j]==1){
+            return 0;
+        }
+        if(i==0 && j==0){
+            return 1;
+        }
+        if(dp[i][j]!=-1)return dp[i][j];
+        int l=solve(i-1,j,grid,dp);
+        int r=solve(i,j-1,grid,dp);
+        return dp[i][j]=l+r;
+    }
+    int uniquePaths(vector<vector<int>> &grid) {
+        // code here
+        int n=grid.size();
+        int m=grid[0].size();
+        vector<vector<int>> dp(n,vector<int>(m,-1));
+        return solve(n-1,m-1,grid,dp);
+    }
         
 
 
