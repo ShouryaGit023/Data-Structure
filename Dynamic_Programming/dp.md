@@ -55,3 +55,9 @@
  - use dp
  - that all
 
+ ### 9 . Triangle path sum
+ - start from 0,0
+ - can go only to i+1,j or to i+1,j+1
+ - goal is to reach the last row
+ 
+
