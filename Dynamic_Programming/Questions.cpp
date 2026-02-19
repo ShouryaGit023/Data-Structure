@@ -250,6 +250,20 @@ int solve(int i,int j,vector<vector<int>> &v,vector<vector<int>> &dp){
         return solve(n-1,m-1,v,dp);
         
     }
+
+//----------------------------------------------------
+//Q7. Triangle path sum
+int solve(int i,int j,vector<vector<int>> &t,vector<vector<int>> &dp){
+        if(i==t.size())return 0;
+        if(dp[i][j]!=-1)return dp[i][j];
+        return dp[i][j]=t[i][j]+min(solve(i+1,j,t,dp),solve(i+1,j+1,t,dp));
+    }
+    int minPathSum(vector<vector<int>>& triangle) {
+        // Code here
+        int n=triangle.size();
+        vector<vector<int>> dp(n,vector<int>(n,-1));
+        return solve(0,0,triangle,dp);
+    }
         
 
 
