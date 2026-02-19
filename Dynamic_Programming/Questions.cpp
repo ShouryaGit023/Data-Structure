@@ -264,6 +264,34 @@ int solve(int i,int j,vector<vector<int>> &t,vector<vector<int>> &dp){
         vector<vector<int>> dp(n,vector<int>(n,-1));
         return solve(0,0,triangle,dp);
     }
+
+    //-------------------------------------------
+//Q8. Maximum path sum
+int solve(int i, int j,vector<vector<int>>&m,vector<vector<int>> &dp){
+        if (j < 0 || j >= m[0].size()) {
+            return -1e9; 
+        }
+        if (i == 0) {
+            return m[0][j];
+        }
+        if(dp[i][j]!=-1)return dp[i][j];
+        int t=solve(i-1,j,m,dp);
+        int r=solve(i-1,j+1,m,dp);
+        int l=solve(i-1,j-1,m,dp);
+        return dp[i][j]=m[i][j]+max(t,max(r,l));
+    }
+    int maximumPath(vector<vector<int>>& mat) {
+        // code here
+        
+        int n=mat.size();
+        int m=mat[0].size();
+        vector<vector<int>> dp(n,vector<int> (m,-1));
+        int ans=INT_MIN;
+        for(int i=0;i<m;i++){
+            ans=max(ans,solve(n-1,i,mat,dp));
+        }
+        return ans;
+    }
         
 
 

@@ -59,5 +59,7 @@
  - start from 0,0
  - can go only to i+1,j or to i+1,j+1
  - goal is to reach the last row
- 
+
+ ### 10. max path sum in matrix
+ - starting and ending point are not fixed
 
