@@ -73,3 +73,11 @@
 ## DP on Subsequences:
 
 ### 12. Subset sum equal to Target
+- same take not take conditions
+- will use 2d dp to track id and target for that val
+
+### 13. Partioning in subsets forming equal sum
+- sum of each subset should be S/2;
+- if S is odd--- ans is no
+- find one subset whose sum is S/2;
+- Same as the last question

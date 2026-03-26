@@ -313,6 +313,30 @@ bool solve(int id, int sum,vector<int> &v,vector<vector<int>> &dp){
         return solve(n-1,sum,arr,dp);
         
     }
+
+//Q13 Partition subset sum
+bool solve1(int id,int sum,vector<vector<int>> &dp, vector<int>&v){
+      if(sum==0)return true;
+      if(id==0)return (v[0]==sum);
+      if(dp[id][sum]!=-1)return dp[id][sum];
+      bool nt=solve1(id-1,sum,dp,v);
+      bool t=false;
+      if(sum>=v[id]){
+          t=solve1(id-1,sum-v[id],dp,v);
+      }
+      return dp[id][sum]=(t || nt);
+  }
+    bool equalPartition(vector<int>& v) {
+        // code herev
+        int n=v.size();
+        int s=0;
+        for(auto i:v){
+            s+=i;
+        }
+        if(s&1)return false;
+        vector<vector<int>> dp(n,vector<int>(s/2+1,-1));
+        return solve1(n-1,s/2,dp,v);
+    }
         
 
 
