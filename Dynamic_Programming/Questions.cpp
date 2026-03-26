@@ -292,6 +292,27 @@ int solve(int i, int j,vector<vector<int>>&m,vector<vector<int>> &dp){
         }
         return ans;
     }
+
+
+//Q12. Subset sum equal to Target
+bool solve(int id, int sum,vector<int> &v,vector<vector<int>> &dp){
+      if(sum==0)return true;
+      if(id==0)return (v[id]==sum);
+      if(dp[id][sum]!=-1)return dp[id][sum];
+      bool nt=solve(id-1,sum,v,dp);
+      bool t=false;
+      if(sum>=v[id]){
+          t=solve(id-1,sum-v[id],v,dp);
+      }
+      return dp[id][sum]=(nt || t);
+  }
+    bool isSubsetSum(vector<int>& arr, int sum) {
+        // code here
+        int n=arr.size();
+        vector<vector<int>> dp(n, vector<int>(sum + 1, -1));
+        return solve(n-1,sum,arr,dp);
+        
+    }
         
 
 

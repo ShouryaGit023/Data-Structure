@@ -63,3 +63,13 @@
  ### 10. max path sum in matrix
  - starting and ending point are not fixed
 
+ ### 11.  Cherry Pickup
+ - Fixed starting point 
+ - Find the max no of cherry that they can pickup
+ - How man ways to reach to the last row 
+(not finished)
+
+
+## DP on Subsequences:
+
+### 12. Subset sum equal to Target
