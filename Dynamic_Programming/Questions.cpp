@@ -338,6 +338,25 @@ bool solve1(int id,int sum,vector<vector<int>> &dp, vector<int>&v){
         return solve1(n-1,s/2,dp,v);
     }
         
+    //Q14. Minimum partition subsets
+     int solve(int id,int sum,int cs,vector<int> &v, vector<vector<int>> &dp){
+        if(id<0){
+            return abs(sum-2*cs);
+        }
+        if(dp[id][cs]!=-1)return dp[id][cs];
+        int t=solve(id-1,sum,cs+v[id],v,dp);
+        int nt=solve(id-1,sum,cs,v,dp);
+        
+        return dp[id][cs]=min(t,nt);
+    }
+    int minDifference(vector<int>& v) {
+        // Your code goes here
+        int n=v.size();
+        int sum=0;
+        for(auto i:v)sum+=i;
+        vector<vector<int>> dp(n,vector<int>(sum+1,-1));
+        return solve(n-1,sum,0,v,dp);
+    }
 
 
 int main(){

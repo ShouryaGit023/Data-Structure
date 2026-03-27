@@ -81,3 +81,8 @@
 - if S is odd--- ans is no
 - find one subset whose sum is S/2;
 - Same as the last question
+
+### 14. Minimum partition subsets
+- can be solved using tabulation 
+- consider each cell tells whether till that index we can have a particular target or not
+- solved using memoization 
