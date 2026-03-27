@@ -68,6 +68,26 @@ int solve(int id,int tar,vector<int>&v, vector<vector<int>> &dp){
         
     }
 
+    //Q17 KnapSack
+    int solve(int id,int W,vector<int> &v, vector<int> &w,vector<vector<int>>&dp){
+        if(id<0 || W==0){
+            return 0;
+        }
+        if(dp[id][W]!=-1)return dp[id][W];
+        int np=solve(id-1,W,v,w,dp);
+        int p=0;
+        if(W>=w[id]){
+            p=v[id]+solve(id-1,W-w[id],v,w,dp);
+        }
+        return dp[id][W]=max(np,p);
+    }
+    int knapsack(int W, vector<int> &v, vector<int> &w) {
+        // code here
+        int n=v.size();
+        vector<vector<int>> dp(n, vector<int> (W+1,-1));
+        return solve(n-1,W,v,w,dp);
+    }
+
 int main(){
 
 }
