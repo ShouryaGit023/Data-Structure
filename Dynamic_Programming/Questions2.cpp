@@ -88,6 +88,57 @@ int solve(int id,int tar,vector<int>&v, vector<vector<int>> &dp){
         return solve(n-1,W,v,w,dp);
     }
 
+    //tabulation approach
+    int knapsack(int W, vector<int> &v, vector<int> &w) {
+        // code here
+        int n=v.size();
+        vector<vector<int>> dp(n+1, vector<int> (W+1,0));
+        for(int i=0;i<=n;i++){
+            dp[i][0]=0;
+        }
+        for(int i=0;i<=W;i++){
+            dp[0][i]=0;
+        }
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=W;j++){
+            //not pick
+            int np=dp[i-1][j];
+            
+            int p=0;
+            if(w[i-1]<=j){
+                p=v[i-1]+dp[i-1][j-w[i-1]];
+            }
+            dp[i][j]=max(p,np);
+            }
+        }
+        return dp[n][W];
+    }
+
+//Q18. Min coin change
+int solve(int id,vector<int> &v,int sum,vector<vector<int>> &dp){
+        if(sum==0)return 0;
+        if(sum<0 || id>=v.size())return 1e9;
+        if(dp[id][sum]!=-1)return dp[id][sum];
+        int nt=solve(id+1,v,sum,dp);
+        int t=1e9;
+        if(sum>=v[id] && v[id]>0){
+            int res = solve(id, v, sum - v[id], dp);
+            if (res != 1e9) {
+                t = 1 + res;
+            }
+        }
+        return dp[id][sum]=min(t,nt);
+    }
+    int minCoins(vector<int> &v, int sum) {
+        // code here
+        int n=v.size();
+        vector<vector<int>> dp(n,vector<int>(sum+1,-1));
+        int ans=solve(0,v,sum,dp);
+    
+        return (ans>=1e9) ? -1 : ans;
+    }
+
+
 int main(){
 
 }

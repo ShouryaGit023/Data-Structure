@@ -99,3 +99,7 @@
 ### 17. Knapsack
 - did the memoization one
 - tabulation is also important
+
+### 18. Coin Change
+- we have multiple supply of coin so look for that
+- we have to find min so look for that
