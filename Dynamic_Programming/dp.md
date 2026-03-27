@@ -103,3 +103,8 @@
 ### 18. Coin Change
 - we have multiple supply of coin so look for that
 - we have to find min so look for that
+
+### 19. Target Sum
+- have to assign + - to each of the value 
+- can be converted to diff subset wala ques
+- did normally and by diff subset aproach
