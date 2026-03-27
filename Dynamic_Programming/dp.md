@@ -86,3 +86,8 @@
 - can be solved using tabulation 
 - consider each cell tells whether till that index we can have a particular target or not
 - solved using memoization 
+
+### 15. Count subsets with sum equal to k
+- Both the approach is given
+- Memoization is intuitive 
+- Tabulation is also given
