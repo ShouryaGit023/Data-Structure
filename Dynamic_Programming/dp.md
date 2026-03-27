@@ -91,3 +91,7 @@
 - Both the approach is given
 - Memoization is intuitive 
 - Tabulation is also given
+
+### 16. Count subsets with differnce d
+- reduce s1-s2=d && s1+s2 =S to find a particular formulae
+- it boils down the question to que 14 (finding a particular(here how many) subset with sum k)

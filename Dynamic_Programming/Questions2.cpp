@@ -41,6 +41,33 @@ int solve(int id,int tar,vector<int>&v, vector<vector<int>>&dp){
     //Both the tabulation and memoization is present
 
 
+// Q16 Subset with difference equal to D
+int solve(int id,int tar,vector<int>&v, vector<vector<int>> &dp){
+      if(id<0){
+          return tar==0;
+      }
+      if(dp[id][tar]!=-1)return dp[id][tar];
+      int np=solve(id-1,tar,v,dp);
+      int p=0;
+      if(tar>=v[id]){
+          p=solve(id-1,tar-v[id],v,dp);
+      }
+      return dp[id][tar]=p+np;
+      
+  }
+    int countPartitions(vector<int>& v, int d) {
+        // Code here
+        int n=v.size();
+        int sum=0;
+        for(auto i:v)sum+=i;
+        int tar=sum+d;
+        if(tar & 1)return 0;
+        
+        vector<vector<int>> dp(n,vector<int>(tar/2 +1 ,-1));
+        return solve(n-1,tar/2,v,dp);
+        
+    }
+
 int main(){
 
 }
