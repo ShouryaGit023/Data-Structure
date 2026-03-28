@@ -115,3 +115,7 @@
 ### 21 Rod cutting 
 - Same as unbounded dp
 - Learn to optimise the space and tabulation version
+
+### 22. Longest Common Subsequence
+- if matched do 1+(i-1,j-1);
+- else do max ((i-1,j), (i,j-1));
