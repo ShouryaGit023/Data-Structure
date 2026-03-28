@@ -119,3 +119,15 @@
 ### 22. Longest Common Subsequence
 - if matched do 1+(i-1,j-1);
 - else do max ((i-1,j), (i,j-1));
+- for printing the lcs do the extra code of finding the index where a new number is found in the matrix
+
+### 23 Longest Common Substring
+- if matched do 1+(i-1,j-1);
+- else do dp[i][j]=0;
+- also note that this will require tabulation matrix
+- take the max of the grid
+
+### 24. Longest Palindromic Substring
+- Same as earlier
+- make one string that is reverse of the original
+- find lcs in that

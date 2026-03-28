@@ -237,8 +237,62 @@ int solve(int id,int len,vector<int> &v,vector<vector<int>> &dp){
                 
             }
         }     
+
+        //printing the lcs
+        set<int> s;
+        string ans;
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                if(dp[i][j]!=0 && s.count(dp[i][j])==0){
+                    ans.push_back(a[i-1]);
+                    s.insert(dp[i][j]);
+                }
+            }
+        }  
+        cout<<ans<<endl;
+
+
         return dp[n][m];
 }
+
+//Q23 Longest Common Substring
+int longCommSubstr(string& s1, string& s2) {
+        // your code here
+        int n=s1.size();
+        int m=s2.size();
+        vector<vector<int>>dp(n+1,vector<int>(m+1,0));
+        int ans=0;
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                if(s1[i-1]==s2[j-1]){
+                    dp[i][j]=1+dp[i-1][j-1];
+                    ans=max(ans,dp[i][j]);
+                }
+                else{
+                    dp[i][j]=0;
+                }
+            }
+        }
+        return ans;
+    }
+
+// Q23. Longest Palindromic Substring
+int solve(int n,int m,string &a,string &b,vector<vector<int>> &dp){
+        if(n==0 || m==0)return 0;
+        if(dp[n][m]!=-1)return dp[n][m];
+        if(a[n-1]==b[m-1]){
+            return dp[n][m]=1+solve(n-1,m-1,a,b,dp);
+        }
+        return dp[n][m]=max(solve(n-1,m,a,b,dp), solve(n,m-1,a,b,dp));
+    }
+    int longestPalindromeSubseq(string s) {
+        string a=s;
+        int n=s.size();
+        reverse(a.begin(),a.end());
+        vector<vector<int>> dp(n+1,vector<int> (n+1,-1));
+        return solve(n,n,s,a,dp);
+        
+    }
 
 int main(){
 
