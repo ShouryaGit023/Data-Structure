@@ -111,3 +111,7 @@
 
 ### 20. Unbounded Knapsack
 - same as knapsack but now we have unlimited supply of products
+
+### 21 Rod cutting 
+- Same as unbounded dp
+- Learn to optimise the space and tabulation version

@@ -180,7 +180,28 @@ int solve(int id,vector<int>&val, vector<int> &wt, int capacity, vector<vector<i
         vector<vector<int>> dp(n,vector<int>(capacity+1,-1));
         return solve(n-1,val,wt,capacity,dp);
         
-    }    
+    }
+    
+// Q21 Rod Cutting
+int solve(int id,int len,vector<int> &v,vector<vector<int>> &dp){
+        if(len==0)return 0;
+        if(id<0)return 0;
+        if(dp[id][len]!=-1)return dp[id][len];
+        int nt=solve(id-1,len,v,dp);
+        int t=0;
+        if(len-1>=id){
+            t=v[id]+solve(id,len-id-1,v,dp);
+        }
+        return dp[id][len]=max(nt,t);
+    }
+    int cutRod(vector<int> &p) {
+        // code here
+        int n=p.size();
+        int len=n;
+        vector<vector<int>> dp(n,vector<int>(len+1,-1));
+        return solve(n-1,len,p,dp);
+        
+    }
 
 
 int main(){
