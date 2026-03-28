@@ -108,3 +108,6 @@
 - have to assign + - to each of the value 
 - can be converted to diff subset wala ques
 - did normally and by diff subset aproach
+
+### 20. Unbounded Knapsack
+- same as knapsack but now we have unlimited supply of products

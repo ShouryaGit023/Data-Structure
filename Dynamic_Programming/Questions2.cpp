@@ -163,6 +163,25 @@ int solve(int id,vector<int> &v, int t,vector<vector<int>> &dp){
         
     }
 
+// Q20. Unbounded Knapsack
+int solve(int id,vector<int>&val, vector<int> &wt, int capacity, vector<vector<int>> &dp){
+        if(id<0 || capacity<0)return 0;
+        if(dp[id][capacity]!=-1)return dp[id][capacity];
+        int nt=solve(id-1,val,wt,capacity,dp);
+        int t=0;
+        if(wt[id]<=capacity){
+            t=val[id]+solve(id,val,wt,capacity-wt[id],dp);
+        }
+        return dp[id][capacity]=max(t,nt);
+    }
+    int knapSack(vector<int>& val, vector<int>& wt, int capacity) {
+        // code here
+        int n=val.size();
+        vector<vector<int>> dp(n,vector<int>(capacity+1,-1));
+        return solve(n-1,val,wt,capacity,dp);
+        
+    }    
+
 
 int main(){
 
