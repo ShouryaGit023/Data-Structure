@@ -147,3 +147,8 @@
 ### 28. Distinct Subsequence
 - take not take 
 - and easy one
+
+### 29. Edit Distances
+- here we have 3 options
+- insert , delete, replace
+- code is self explanatory
