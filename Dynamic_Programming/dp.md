@@ -139,3 +139,8 @@
 
 ### 26. Minimum Operation to make a ==b (using deletion and insertion in string a)
 - ans is n+m- 2*LCS;
+
+### 27. Smallest Common SuperSequence
+- length is n+m-lcs
+- to print the String iterate through the dp table
+
