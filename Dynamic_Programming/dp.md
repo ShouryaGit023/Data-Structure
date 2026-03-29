@@ -144,3 +144,6 @@
 - length is n+m-lcs
 - to print the String iterate through the dp table
 
+### 28. Distinct Subsequence
+- take not take 
+- and easy one
