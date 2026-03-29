@@ -131,3 +131,11 @@
 - Same as earlier
 - make one string that is reverse of the original
 - find lcs in that
+
+### 25. Minimum insertion to make a palindrom string
+- keep the longest palindroming subsequence intact
+- we have to add the elements who are not part of LPS
+- that is n-LPS is the ans
+
+### 26. Minimum Operation to make a ==b (using deletion and insertion in string a)
+- ans is n+m- 2*LCS;

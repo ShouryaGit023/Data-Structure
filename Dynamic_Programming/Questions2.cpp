@@ -276,7 +276,7 @@ int longCommSubstr(string& s1, string& s2) {
         return ans;
     }
 
-// Q23. Longest Palindromic Substring
+// Q24. Longest Palindromic Substring
 int solve(int n,int m,string &a,string &b,vector<vector<int>> &dp){
         if(n==0 || m==0)return 0;
         if(dp[n][m]!=-1)return dp[n][m];
@@ -292,6 +292,64 @@ int solve(int n,int m,string &a,string &b,vector<vector<int>> &dp){
         vector<vector<int>> dp(n+1,vector<int> (n+1,-1));
         return solve(n,n,s,a,dp);
         
+    }
+
+
+//Q25 Min no of elemets to add to make string palindromes
+int solve(int i,int j,string &a, string &b, vector<vector<int>> &dp){
+        if(i<0 || j<0)return 0;
+        if(dp[i][j]!=-1)return dp[i][j];
+        if(a[i]==b[j]){
+            return dp[i][j]=1+solve(i-1,j-1,a,b,dp);
+        }
+        return dp[i][j]=max(solve(i-1,j,a,b,dp),solve(i,j-1,a,b,dp));
+    }
+    int minInsertions(string s) {
+        int n=s.size();
+        string a=s;
+        reverse(a.begin(),a.end());
+        vector<vector<int>> dp(n+1,vector<int>(n+1,0));
+        for(int i=0;i<=n;i++){
+            dp[i][0]=0;
+            dp[0][i]=0;
+        }
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=n;j++){
+                //match 
+                if(s[i-1]==a[j-1]){
+                    dp[i][j]=1+dp[i-1][j-1];
+                }
+                else{
+                    dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+                }
+            }
+        }
+        return n-dp[n][n];
+    }    
+
+//Q26. Min operation to make string equal
+ int minOperations(string &a, string b) {
+        // Your code goes here
+        int n=a.size();
+        int m=b.size();
+        vector<vector<int>> dp(n+1,vector<int> (m+1,-1));
+        for(int i=0;i<=n;i++){
+            dp[i][0]=0;
+        }
+        for(int j=0;j<=m;j++){
+            dp[0][j]=0;
+        }
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                if(a[i-1]==b[j-1]){
+                    dp[i][j]=1+dp[i-1][j-1];
+                }
+                else {
+                    dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+                }
+            }
+        }
+        return n+m-2*dp[n][m];
     }
 
 int main(){
