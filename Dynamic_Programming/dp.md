@@ -152,3 +152,10 @@
 - here we have 3 options
 - insert , delete, replace
 - code is self explanatory
+
+### 30. WildCard Matching
+- havent done
+
+
+### 31. Buy and Sell Stock II
+- take a buy variable to check whether to buy or not
