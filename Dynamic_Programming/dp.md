@@ -163,3 +163,11 @@
 ### 32. Buy & Sell Stock III
 - 3d DP
 - Do again
+
+### 33. Buy & Sell Stock IV
+- Similar to B&S III 
+- here no of transactions will be k (instead of 2);
+
+### 34. Buy and sell with cooldown
+- Here we can not buy immediately after a sell
+- so there is a minor change in the sell code
