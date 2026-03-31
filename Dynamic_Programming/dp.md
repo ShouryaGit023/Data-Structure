@@ -171,3 +171,8 @@
 ### 34. Buy and sell with cooldown
 - Here we can not buy immediately after a sell
 - so there is a minor change in the sell code
+
+### 35. Buy & Sell with Transaction fee
+- same as before but with the intro of transaction fee
+- transaction fee is deducted each time while doing sell
+- to bs wo minus krdo ans aa jaega
