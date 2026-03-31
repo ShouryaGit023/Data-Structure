@@ -176,3 +176,7 @@
 - same as before but with the intro of transaction fee
 - transaction fee is deducted each time while doing sell
 - to bs wo minus krdo ans aa jaega
+
+### 36. Longest Increasing Subsequence
+- Same take not take with few conditions
+- kb lena h and kb nai with how many states that have to keep in mind
