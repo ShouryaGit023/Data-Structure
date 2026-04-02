@@ -180,3 +180,18 @@
 ### 36. Longest Increasing Subsequence
 - Same take not take with few conditions
 - kb lena h and kb nai with how many states that have to keep in mind
+
+- Space Optimised Approach of LIS
+- using 1D dp and checking the LIS of prev elements
+
+- Binary Search Approach of LIS
+- using lowerbound and replacing in case of found
+- if the last element is samller than the current v[i] push back to ans
+- return the ans.size()
+
+
+### 37. Largest Divisible Subset
+- sort as order is not important
+- do the same as done in the previous printing LIS question 
+- the subtle change would be checking v[i]%v[j]
+- thats all
