@@ -107,8 +107,40 @@ int solve(int id,vector<int> &v, vector<vector<int>> &dp,int last){
     }
     int lengthOfLIS(vector<int>& v) {
         int n=v.size();
-        vector<vector<int>> dp(n,vector<int> (n+1,-1));
-        return solve(n-1,v,dp,-1);
+        vector<vector<int>> dp(n+1,vector<int> (n+1,0));
+        // return solve(n-1,v,dp,-1);
+
+        //tabulation code
+        for(int i=n-1;i>=0;i--){
+            for(int pi=i-1;pi>=0;pi--){
+                int len=dp[i-1][pi+1];
+                if(pi==0 || v[i]<v[pi]){
+                    len=max(len,1+dp[i-1][i+1]);
+                }
+                dp[i][pi]=len;
+            }
+        }
+        return dp[n-1][n];
+        
+    }
+
+    //the space optimised code
+    int lis(vector<int>& v) {
+        // code here
+        int n=v.size();
+        vector<int> dp(n,1);
+        for(int i=1;i<n;i++){
+            for(int j=0;j<i;j++){
+                if(v[j]<v[i]){
+                    dp[i]=max(dp[i],1+dp[j]);
+                }
+            }
+        }
+        int ans=-1;
+        for(auto i:dp){
+            ans=max(ans,i);
+        }
+        return ans;
         
     }
 
