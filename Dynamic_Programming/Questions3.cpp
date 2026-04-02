@@ -124,23 +124,64 @@ int solve(int id,vector<int> &v, vector<vector<int>> &dp,int last){
         
     }
 
-    //the space optimised code
+    //the space optimised code for tracing the LIS
+     int lis(vector<int>& v) {
+        // code here
+        int lastind=0;
+        int largest=1;
+        int n=v.size();
+        vector<int> hash(n,0);
+        vector<int> dp(n,1);
+        for(int i=1;i<n;i++){
+            hash[i]=i;
+            for(int j=0;j<i;j++){
+                if(v[j]<v[i] && 1+dp[j]>dp[i]){
+                    dp[i]=1+dp[j];
+                    hash[i]=j;
+                }
+            }
+            if(dp[i]>largest){
+                largest=dp[i];
+                lastind=i;
+            }
+        }
+        vector<int> result;
+        result.push_back(v[lastind]);
+        
+        while (hash[lastind] != lastind) {
+            lastind = hash[lastind];
+            result.push_back(v[lastind]);
+        }
+
+        // The sequence is currently in reverse order
+        reverse(result.begin(), result.end());
+
+        // Printing the LIS
+        for (int x : result) {
+            cout << x << " ";
+        }
+        cout << endl;
+        return largest;
+        
+    }
+
+
+    //Binary search approach of LIS
     int lis(vector<int>& v) {
         // code here
         int n=v.size();
-        vector<int> dp(n,1);
+        vector<int> ans;
+        ans.push_back(v[0]);
         for(int i=1;i<n;i++){
-            for(int j=0;j<i;j++){
-                if(v[j]<v[i]){
-                    dp[i]=max(dp[i],1+dp[j]);
-                }
+            if(v[i]>ans.back()){
+                ans.push_back(v[i]);
+            }
+            else{
+                auto it=lower_bound(ans.begin(),ans.end(),v[i]);
+                *it=v[i];
             }
         }
-        int ans=-1;
-        for(auto i:dp){
-            ans=max(ans,i);
-        }
-        return ans;
+        return ans.size();
         
     }
 
