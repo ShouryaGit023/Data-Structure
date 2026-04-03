@@ -195,3 +195,9 @@
 - do the same as done in the previous printing LIS question 
 - the subtle change would be checking v[i]%v[j]
 - thats all
+
+### 38. Longest String Chain
+- Treat this question as LIS
+- But with the size of strings
+- make a check function for finding that those 2 string differ only by one char
+- also sort the vector of string on the basis of size
