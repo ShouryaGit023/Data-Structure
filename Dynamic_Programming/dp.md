@@ -201,3 +201,11 @@
 - But with the size of strings
 - make a check function for finding that those 2 string differ only by one char
 - also sort the vector of string on the basis of size
+
+### 39. Longest Bitonic Subsequnce
+- make the LIS dp1 from the start
+- make another LIS dp2 from the back
+- if( only inc || only dec) --> acceptable 
+- then ans =dp1[i]+dp2[i]-1;
+- else if both are required for valid ans
+- then only do ans=dp1[i]+dp2[i]-1; iff dp1[i]!=1 && dp2[i]!=1 

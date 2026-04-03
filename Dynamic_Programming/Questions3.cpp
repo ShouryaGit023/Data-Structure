@@ -261,6 +261,37 @@ static bool comp(string &a, string &b){
     }
 
 
+//Q39. Longest Biotonic Subsequnce
+int longestBitonicSequence(int n, vector<int> &v) {
+        // code here
+        vector<int> dp1(n,1),dp2(n,1);
+        for(int i=1;i<n;i++){
+            for(int j=0;j<i;j++){
+                if(v[j]<v[i]){
+                    dp1[i]=max(dp1[i],1+dp1[j]);
+                }
+            }
+        }
+        for(int i=n-2;i>=0;i--){
+            for(int j=n-1;j>i;j--){
+                if(v[j]<v[i]){
+                    dp2[i]=max(dp2[i],1+dp2[j]);
+                }
+            }
+        }
+        int ans=0;
+        for(int i=0;i<n;i++){
+            if(dp1[i]==1 || dp2[i]==1){
+                continue;
+            }
+            else{
+                ans=max(ans,dp1[i]+dp2[i]-1);
+            }
+        }
+        return ans;
+    }
+
+
 int main(){
 
 }
