@@ -208,4 +208,11 @@
 - if( only inc || only dec) --> acceptable 
 - then ans =dp1[i]+dp2[i]-1;
 - else if both are required for valid ans
-- then only do ans=dp1[i]+dp2[i]-1; iff dp1[i]!=1 && dp2[i]!=1 
+- then only do ans=dp1[i]+dp2[i]-1; iff dp1[i]!=1 && dp2[i]!=1
+
+### 40. Number Of LIS
+- Do the same code
+- use another vector to store numbers of lis
+- if prev+ current forms the same length of lis ---> add the c[prev];
+- else update to c[curr]==c[prev];
+- in the end accumulate the max val of lis to count
