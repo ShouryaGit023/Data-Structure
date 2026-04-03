@@ -216,3 +216,14 @@
 - if prev+ current forms the same length of lis ---> add the c[prev];
 - else update to c[curr]==c[prev];
 - in the end accumulate the max val of lis to count
+
+## Partition DP
+- When the order of performing operation generate different result
+- Thats when we use partition dp
+
+### 41. Matrix Chain Multiplication
+- break into partitions
+- (i--->j)== (1--> N-1)
+- to make partition use k from i to j-1;
+- ans is v[i-1]*v[k]*v[j]+solve(i,k)*solve(k+1,j);
+- take the min of all 
