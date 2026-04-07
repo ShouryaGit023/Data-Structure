@@ -340,8 +340,7 @@ int findNumberOfLIS(vector<int>& v) {
         
         return solve(1,n-1,v);
         
-    }
-};
+    };
 
 
 int main(){
