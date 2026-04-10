@@ -14,3 +14,7 @@
 - if char is already in map and also is within range
 - move the Left pointer to old index +1 and update the char index to the new index in the range
 - take the ans as max(ans,r-l+1);
+
+### 3. Maximum number of Consecutive ones with atmost K flips
+- this can be interpreted as Max Subarray length with atmost K zero
+- Do that and the ans will be yours
