@@ -24,6 +24,29 @@ int maxScore(vector<int>& v, int k) {
     }
 
 
+//Q2. Longest Substring with unique characters
+int longestUniqueSubstr(string &s) {
+        // code here
+        map<char,int>m;
+        int n=s.size();
+        int ans=0;
+        int l=0;
+        for(int r=0;r<n;r++){
+            if(m.find(s[r])!=m.end()){
+                if(m[s[r]]>=l){
+                    l=m[s[r]]+1;
+                    
+                }
+               
+            }
+            m[s[r]]=r;
+            ans=max(ans,r-l+1);
+            
+        }
+        return ans;
+    }
+
+
 int main(){
 
 }
