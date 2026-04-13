@@ -150,3 +150,36 @@ Efficiency: CSMA/CA is essential for wireless environments where nodes cannot de
 * **Inter-Frame Spacing (IFS):** This is the mandatory wait time between transmissions in CSMA/CA to ensure the medium is truly clear.
 
 **Good luck with your CN practical, Shourya! You've got all the code
+
+
+
+```
+### 12. throughput
+# Experiment 12: Network Performance Visualization (XGraph)
+
+## 📌 Objective
+To monitor and plot the real-time throughput of a duplex wired link using NS-2 and the XGraph utility.
+
+---
+
+## 🚀 Execution Steps
+1. **Save the code:** Create a file named `perf.tcl`.
+2. **Run the simulation:** ```bash
+   ns perf.tcl
+Observation: The simulation will run for 60 seconds (virtual time). Upon completion, a window will pop up displaying the throughput graph.
+
+📐 Parameters
+Bandwidth: 1 Mb
+
+Delay: 100 ms
+
+Sampling Interval: 0.5 seconds
+
+Output Unit: Megabits per second (Mbps)
+
+💡 Key Terms for Viva
+Throughput: The actual rate of successful message delivery.
+
+XGraph: A plotting tool that reads space-separated values (X Y) from a file.
+
+Recursive Procedure: The record proc calls itself using $ns at [expr $now+$time] "record".
