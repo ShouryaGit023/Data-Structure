@@ -18,3 +18,7 @@
 ### 3. Maximum number of Consecutive ones with atmost K flips
 - this can be interpreted as Max Subarray length with atmost K zero
 - Do that and the ans will be yours
+
+### 4. Fruits in the basket
+- Use map to maintain the size of 2
+- Increment l when size exceeds
