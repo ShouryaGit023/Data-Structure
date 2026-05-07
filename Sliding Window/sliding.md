@@ -21,4 +21,18 @@
 
 ### 4. Fruits in the basket
 - Use map to maintain the size of 2
-- Increment l when size exceeds
+- Increment l when size exceeds the
+
+
+### 5. Max substring with at most K different characters
+- same as before
+
+
+### 6. Number of substring with all character
+- check till we get all character
+- the total substring would be till end of array
+
+### 7. Longest Repeating Character Replacement
+- Track the max freq and total length of the subarray
+- number of changes req will be total_length - max_freq
+- make sure its less than k 
