@@ -36,3 +36,11 @@
 - Track the max freq and total length of the subarray
 - number of changes req will be total_length - max_freq
 - make sure its less than k 
+
+
+### 8. Binary Subarray sum
+- use of atmost wala thing to solve quetion related to exactly equal to this
+
+### 9 Minimum Window Substring
+- use map to keep track of req characters
+- check the approach as its elegant

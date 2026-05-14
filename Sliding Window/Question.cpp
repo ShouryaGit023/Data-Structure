@@ -132,6 +132,71 @@ int characterReplacement(string v, int k) {
         
     }
 
+// Q8. Binary sum
+ long long atMost(vector<int>& v, int goal) {
+        if (goal < 0) return 0;
+        long long count = 0;
+        int sum = 0;
+        int l = 0;
+        
+        for (int r = 0; r < v.size(); ++r) {
+            sum += v[r];
+            
+            // Shrink window if sum exceeds goal
+            while (sum > goal && l <= r) {
+                sum -= v[l];
+                l++;
+            }
+            
+            // All subarrays ending at r with start index between l and r 
+            // are valid. Total count = (r - l + 1)
+            count += (r - l + 1);
+        }
+        return count;
+    }
+    int numSubarraysWithSum(vector<int>& v, int s) {
+        return atMost(v,s)-atMost(v,s-1);
+        
+    }
+
+
+// Q9. Minimum Window substring
+string minWindow(string s, string t) {
+        if(t.size()>s.size())return "";
+        unordered_map<char,int> m;
+        for(auto i:t){
+            m[i]++;
+        }
+        int req=m.size();
+        int cnt=0;
+        int si=-1;
+        int ml=s.size()+1;
+        int l=0;
+        for(int r=0;r<s.size();r++){
+            m[s[r]]--;
+            if(m[s[r]]==0)cnt++;
+            while(l<=r && cnt==req){
+                int d=(r-l+1);
+                if(d<ml){
+                    ml=d;
+                    si=l;
+                }
+
+                m[s[l]]++;
+                if(m[s[l]]>0)cnt--;
+                l++;
+                
+            }
+
+           
+        }
+
+        if(si==-1)return "";
+        return s.substr(si,ml);
+       
+        
+    }
+
 
 int main(){
 
