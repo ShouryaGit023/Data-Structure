@@ -146,7 +146,8 @@ priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> p;
         vector<int> dist(n+1,INT_MAX);
         dist[1]=0;
         priority_queue<pair<int,int> ,vector<pair<int,int>>, greater<pair<int,int>>> p;
-        p.push({0,1});
+        p.push({0,1}); 
+
         while(!p.empty()){
             int node=p.top().second;
             int w=p.top().first;
@@ -343,7 +344,7 @@ vector<int> bellmanFord(int V, vector<vector<int>>& edges, int src) {
 		for (auto it: edges) {
 			int u = it[0];
 			int v = it[1];
-			int wt = it[2];
+			int wt = it[2];     
 			if (dist[u] != 1e8 && dist[u] + wt < dist[v]) {
 			    
                 // If this is the Vth relaxation, then there is
